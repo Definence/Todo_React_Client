@@ -4,7 +4,7 @@ import React from 'react';
 // import { getTasks } from '../../actions/tasks';
 import Menu from '../layouts/menu';
 import TasksList from './tasks_list';
-// import TaskNew from './task_new';
+import Form from './form';
 // import { Link } from 'react-router';
 
 
@@ -21,7 +21,7 @@ const Tasks_Index = () => {
           </div>
 
           <div className="col-md-offset-2 col-md-4">
-            {/*<TaskNew />*/}
+            <Form />
           </div>
 
         </div>
