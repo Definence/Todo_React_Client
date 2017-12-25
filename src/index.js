@@ -25,11 +25,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//показує що змінилося в store
 store.subscribe(() => {
   console.log('MAIN STORE ->', store.getState());
 })
-
-
-// store  обєкт... дістати його можна з любої частини проекту...
-//             -> actions(запрос на бек-енд)   -> reduser(засунути в store дані які прийшли з бeк-енду)

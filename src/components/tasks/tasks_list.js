@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { getTasks  } from '../../actions/tasks';
 import axios from 'axios';
 
-const API_URL = `http://localhost:8000/tasks`;
+const API_URL = `http://localhost:3000/tasks`;
 const headers = { 'Content-Type': 'application/json', }
 
 class TasksList extends Component {
@@ -27,17 +27,6 @@ class TasksList extends Component {
       })
   }
 
-  // addTrack() {
-  //     console.log('addTrack', this.trackInput.value);
-  //     this.props.onAddTrack(this.trackInput.value);
-  //     this.trackInput.value = '';
-  // }
-
-  // findTrack() {
-  //   console.log('findTrack', this.searchInput.value);
-  //   this.props.onFindTrack(this.searchInput.value);
-  // }
-
   render() {
     console.log(this.props.tasks);
     return (
@@ -47,10 +36,10 @@ class TasksList extends Component {
             <div key={task.id}>
             <br />
               <li className="li_height hover1 for_icons">
-                <div className="col-md-6" style={{backgroundColor: 'red'}} >{ task.title }</div>
+                <div className="col-md-6" style={{backgroundColor: 'green'}} >{ task.title }</div>
                 <div className="col-md-3" style={{backgroundColor: 'yellow'}} >{ task.due_date }</div>
-                <div className="col-md-1" style={{backgroundColor: 'red'}} >{ task.priority }</div>
-                <div className="col-md-2 hover2 " style={{backgroundColor: 'yellow'}} >
+                <div className="col-md-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
+                <div className="col-md-2 hover2" >
                   <span className="glyphicon glyphicon-align-left" title="Open task">
                     <Link to={`/task/${task.id}`}></Link>
                   </span>

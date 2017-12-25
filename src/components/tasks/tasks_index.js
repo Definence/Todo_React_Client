@@ -11,21 +11,25 @@ import Form from './form';
 const Tasks_Index = () => {
   return (
     <div>
+
       <Menu/>
+
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
-          </div>
-          <div className="col-md-6">
+
+          <div className="col-sm-7">
             <TasksList />
           </div>
 
-          <div className="col-md-offset-2 col-md-4">
+          <div className="col-sm-1"></div>
+
+          <div className="col-sm-4">
             <Form />
           </div>
 
         </div>
       </div>
+
     </div>
   );
 }
