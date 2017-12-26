@@ -10,11 +10,8 @@ export default function tasks(state = [], action) {
    	  return  action.payload;
 
   } else if (action.type === 'RESOURCES/TASKS/DELETE') {
-  		state.tasks = state.tasks.filter(el => el.id !== action.payload);
-      return ({
-        ...state,
-        tasks: [...state.tasks]
-      });
+  	  state = state.filter(el => el.id !== action.payload);
+      //return state;
   }
 
   return state;

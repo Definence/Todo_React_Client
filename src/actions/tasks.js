@@ -35,7 +35,7 @@ export function deleteTask(id) {
   return function(dispatch, getState) {
     axios.delete(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/DELETE', payload: res.id });
+        dispatch({ type: 'RESOURCES/TASKS/DELETE', payload: id });
         console.log(res);
       })
       .catch(error => {
