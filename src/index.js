@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+// import cookie from 'react-cookies'
 
 import './index.css';
 import reducer from './reducers';

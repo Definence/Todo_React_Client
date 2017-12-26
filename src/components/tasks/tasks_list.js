@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 import { getTasks, deleteTask } from '../../actions/tasks';
-import axios from 'axios';
+//import axios from 'axios';
 
-const API_URL = `http://localhost:3000/tasks`;
-const headers = { 'Content-Type': 'application/json', }
+// const API_URL = `http://localhost:3000/tasks`;
+// const headers = { 'Content-Type': 'application/json', }
 
 class TasksList extends Component {
 
@@ -19,7 +19,6 @@ class TasksList extends Component {
 
   handleDestroy (id) {
     this.props.onDestroyTask(id);
-
     // axios.delete(`${API_URL}/${id}`, { headers: headers })
     //   .then(res => {
 
@@ -68,7 +67,9 @@ class TasksList extends Component {
                   <div className="col-md-3" style={{backgroundColor: 'yellow'}} >{ task.due_date }</div>
                   <div className="col-md-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
                   <div className="col-md-2 hover2" >
-                    <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
+                    <span className="glyphicon glyphicon-pencil" title="Edit task">
+
+                    </span>
                     <span onClick={this.handleDestroy.bind(this, task.id)}  className="glyphicon glyphicon-trash" title="Delete task"></span>
                     <span className="glyphicon glyphicon-remove" title="Mark as uncompleted"></span>
                   </div>
@@ -85,7 +86,6 @@ class TasksList extends Component {
 
 }
 
-//<Link to={`/task/${task.id}`}></Link>
 
 export default connect(
   state => ({
@@ -94,6 +94,6 @@ export default connect(
   dispatch => ({
     onDestroyTask: (id) => {
       dispatch(deleteTask(id));
-    }
+    },
   })
 )(TasksList);

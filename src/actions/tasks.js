@@ -2,6 +2,7 @@ import axios from 'axios';
 const API_URL = `http://localhost:3000/tasks`;
 const headers = { 'Content-Type': 'application/json', }
 
+
 export function getTasks() {
   return function(dispatch, getState) {
     axios.get(API_URL, { headers })
@@ -23,7 +24,6 @@ export function addTask(task) {
     axios.post(API_URL, body, { headers: headers })
       .then(res => {
         dispatch({ type: 'RESOURCES/TASKS/ADD', payload: res.data});
-        console.log(res);
       })
       .catch(error => {
         console.error(error);
@@ -35,7 +35,7 @@ export function deleteTask(id) {
   return function(dispatch, getState) {
     axios.delete(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
-        // dispatch({ type: 'RESOURCES/TASKS/ADD', payload: res.data});
+        dispatch({ type: 'RESOURCES/TASKS/DELETE', payload: res.id });
         console.log(res);
       })
       .catch(error => {

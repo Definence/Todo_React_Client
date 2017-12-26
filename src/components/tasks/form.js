@@ -1,5 +1,5 @@
 import React  from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { connect } from 'react-redux';
 import { addTask  } from '../../actions/tasks';
 
@@ -19,15 +19,17 @@ class Form extends React.Component {
     };
   }
 
+  //змінює стейт форми
   handleChange(field, element) {
     //змінює стейт active на протилежне
-    if (field == 'active')
+    if (field === 'active')
       this.state.task.active = !this.state.task.active
     //змінює стейт решти полів форми
     else
       this.state.task[field] = element.target.value
   }
 
+  //сабмітить форму
   handleSubmit(element) {
     element.preventDefault();
     this.props.onAddTask(this.state.task);
