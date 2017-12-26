@@ -17,11 +17,9 @@ const Tasks_Index = () => {
       <div className="container">
         <div className="row">
 
-          <div className="col-sm-7">
+          <div className="col-sm-8">
             <TasksList />
           </div>
-
-          <div className="col-sm-1"></div>
 
           <div className="col-sm-4">
             <Form />
