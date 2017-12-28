@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { Link } from 'react-router';
+import { Link } from 'react-router';
 import { getTasks, deleteTask } from '../../actions/tasks';
 //import axios from 'axios';
 
@@ -29,9 +29,9 @@ class TasksList extends Component {
   }
 
   render() {
-    console.log(this.props.tasks);
     return (
       <div>
+
         <h3> Current tasks: </h3>
         {this.props.tasks.map( (task) => {
           if (!task.active) {
@@ -44,9 +44,15 @@ class TasksList extends Component {
                   <div className="col-md-3" style={{backgroundColor: 'yellow'}} >{ task.due_date }</div>
                   <div className="col-md-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
                   <div className="col-md-2 hover2" >
-                    <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
+
+                    <Link to={`/tasks/${task.id}/edit`} >
+                      <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
+                    </Link>
+
                     <span onClick={this.handleDestroy.bind(this, task.id)}  className="glyphicon glyphicon-trash" title="Delete task"></span>
+
                     <span className="glyphicon glyphicon-ok" title="Mark as completed"></span>
+
                   </div>
                 </li>
               </div>
@@ -67,11 +73,15 @@ class TasksList extends Component {
                   <div className="col-md-3" style={{backgroundColor: 'yellow'}} >{ task.due_date }</div>
                   <div className="col-md-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
                   <div className="col-md-2 hover2" >
-                    <span className="glyphicon glyphicon-pencil" title="Edit task">
 
-                    </span>
+                    <Link to="/tasks_edition/:id" >
+                      <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
+                    </Link>
+
                     <span onClick={this.handleDestroy.bind(this, task.id)}  className="glyphicon glyphicon-trash" title="Delete task"></span>
+
                     <span className="glyphicon glyphicon-remove" title="Mark as uncompleted"></span>
+
                   </div>
                 </li>
               </div>

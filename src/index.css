@@ -13,3 +13,7 @@ li { list-style-type: none; }
 .li_height{padding: 10px; margin-top: 5px; height: 40px; }
 
 .text_decoration_line_through{text-decoration: line-through}
+
+.glyphicon {
+	color: #3A3A3A;
+}

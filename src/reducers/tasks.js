@@ -12,6 +12,8 @@ export default function tasks(state = [], action) {
   } else if (action.type === 'RESOURCES/TASKS/DELETE') {
   	  state = state.filter(el => el.id !== action.payload);
       //return state;
+  } else if (action.type === 'RESOURCES/TASKS/UPDATE') {
+
   }
 
   return state;
