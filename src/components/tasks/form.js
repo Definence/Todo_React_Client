@@ -28,6 +28,9 @@ class Form extends React.Component {
     //змінює стейт решти полів форми
     else
       this.state.task[field] = element.target.value
+
+    console.log(this.state.task)
+
   }
 
   //сабмітить форму
@@ -50,14 +53,14 @@ class Form extends React.Component {
         <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' />
 
         <label>Date:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'date') } type="date" placeholder='Enter a date' />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'due_date') } type="date" placeholder='Enter a date' />
 
         <label>Completed:</label>
         <input className='form-group' onChange={ this.handleChange.bind( this, 'active') } type="checkbox" />
 
         <br/>
 
-        <button type="submit" className="btn btn-primary form-group">Submit</button>
+        <button type="submit" className="btn btn-primary form-group">Add</button>
 
       </form>
     );

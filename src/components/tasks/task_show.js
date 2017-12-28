@@ -14,16 +14,16 @@ export default connect(mapStateToProps)(Task);
 
 
 
-import React from 'react'; 
+import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router';
 
-const API_URL = `http://localhost:8000/tasks`; 
+const API_URL = `http://localhost:8000/tasks`;
 const headers = { 'Content-Type': 'application/json', }
 
 class Task extends React.Component {
-  
+
   constructor() {
     super();
     this.state = { tasks: [] };
@@ -42,7 +42,7 @@ class Task extends React.Component {
   componentDidMount () {
     fetch(API_URL)
       .then( (response) => {
-        return response.json() })   
+        return response.json() })
           .then( (json) => {
               this.setState({tasks: json});
           });
@@ -59,34 +59,34 @@ class Task extends React.Component {
 
 
   };
-  
+
   render() {
     return(
-      <div> 
+      <div>
         {this.state.tasks.map( (task) => {
           return (
-            <div key={task.id}> 
+            <div key={task.id}>
             <br />
-              <li className="li_height hover1 for_icons">  
+              <li className="li_height hover1 for_icons">
                 <div className="col-md-6" style={{backgroundColor: 'red'}} >{ task.title }</div>
                 <div className="col-md-3" style={{backgroundColor: 'yellow'}} >{ task.due_date }</div>
-                <div className="col-md-1" style={{backgroundColor: 'red'}} >{ task.priority }</div> 
-                <div className="col-md-2 hover2 " style={{backgroundColor: 'yellow'}} >  
+                <div className="col-md-1" style={{backgroundColor: 'red'}} >{ task.priority }</div>
+                <div className="col-md-2 hover2 " style={{backgroundColor: 'yellow'}} >
                   <span className="glyphicon glyphicon-align-left" title="Open task">
                     <Link to={`/task/${task.id}`}>{task.title}</Link>
-                  </span>  
+                  </span>
                   <span className="glyphicon glyphicon-check" title="Mark completed"></span>
-                  <span onClick={this.handleDestroy.bind(this, task.id)}  className="glyphicon glyphicon-trash" title="Delete"></span>  
+                  <span onClick={this.handleDestroy.bind(this, task.id)}  className="glyphicon glyphicon-trash" title="Delete"></span>
                 </div>
               </li>
             </div>
           )
-        })} 
-      </div>  
+        })}
+      </div>
     );
   }
 }
 
-export default  connect( 
+export default  connect(
 
 )(Task);

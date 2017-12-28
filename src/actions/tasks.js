@@ -17,6 +17,18 @@ export function getTasks() {
   }
 }
 
+export function getTask(id) {
+  return function(dispatch, getState) {
+    axios.get(`${API_URL}/${id}`, { headers: headers })
+      .then(res => {
+        dispatch({ type: 'RESOURCES/TASKS/GET/ID', payload: res.data });
+      })
+      .catch(e => {
+        console.error("error: ", e);
+      })
+  }
+}
+
 export function addTask(task) {
   return function(dispatch, getState) {
     let body = JSON.stringify({task: task});
@@ -36,7 +48,6 @@ export function deleteTask(id) {
     axios.delete(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
         dispatch({ type: 'RESOURCES/TASKS/DELETE', payload: id });
-        console.log(res);
       })
       .catch(error => {
         console.error(error);
