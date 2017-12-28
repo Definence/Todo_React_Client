@@ -44,16 +44,16 @@ export function deleteTask(id) {
   }
 }
 
-export function taskUpdate(task) {
-  return function(dispatch, getState) {
-    let body = JSON.stringify({task: task});
+// export function taskUpdate(task) {
+//   return function(dispatch, getState) {
+//     let body = JSON.stringify({task: task});
 
-    axios.post(API_URL, body, { headers: headers })
-      .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/UPDATE', payload: res.data});
-      })
-      .catch(error => {
-        console.error(error);
-      })
-  }
-}
+//     axios.post(API_URL, body, { headers: headers })
+//       .then(res => {
+//         dispatch({ type: 'RESOURCES/TASKS/UPDATE', payload: res.data});
+//       })
+//       .catch(error => {
+//         console.error(error);
+//       })
+//   }
+// }

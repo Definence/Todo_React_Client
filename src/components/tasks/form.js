@@ -3,6 +3,7 @@ import React  from 'react';
 import { connect } from 'react-redux';
 import { addTask  } from '../../actions/tasks';
 
+
 class Form extends React.Component {
   //initial state форми
   constructor() {

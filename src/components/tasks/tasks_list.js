@@ -72,7 +72,7 @@ class TasksList extends Component {
                   <div className="col-xs-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
                   <div className="col-xs-3 hover2" >
 
-                    <Link to="/tasks_edition/:id" >
+                    <Link to={`/tasks/${task.id}/edit`} >
                       <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
                     </Link>
 
