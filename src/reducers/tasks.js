@@ -30,6 +30,7 @@ export default function tasks(state = initState, action) {
     };
 
   } else if (action.type === 'RESOURCES/TASKS/EDIT') {
+    //state.tasks = state.tasks.filter(t => t.id !== action.payload.id);
     return {
       ...state,
       edit: action.payload

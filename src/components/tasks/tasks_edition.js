@@ -38,7 +38,7 @@ class Tasks_Edition extends Component {
     this.props.onEditTask(this.state);
   }
 
-  render () {
+  render() {
     const {task} = this.state;
     return (
       <div>

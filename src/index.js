@@ -10,7 +10,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import './index.css';
 import reducer from './reducers';
-import Task from './components/tasks/task_show';
+//import Task from './components/tasks/task_show';
 import Tasks_Index from './components/tasks/tasks_index';
 import Tasks_Edition from './components/tasks/tasks_edition';
 

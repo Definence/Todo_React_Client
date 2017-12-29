@@ -28,9 +28,7 @@ class Form extends React.Component {
     //змінює стейт решти полів форми
     else
       this.state.task[field] = element.target.value
-
-    console.log(this.state.task)
-
+    //console.log(this.state.task)
   }
 
   //сабмітить форму
