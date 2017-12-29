@@ -44,16 +44,16 @@ class Form extends React.Component {
       <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
 
         <label>Title:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required />
 
         <label>Description:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' required />
 
         <label>Priority:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' required />
 
         <label>Date:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'due_date') } type="date" placeholder='Enter a date' />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'due_date') } type="date" placeholder='Enter a date' required />
 
         <label>Completed:</label>
         <input className='form-group' onChange={ this.handleChange.bind( this, 'active') } type="checkbox" />

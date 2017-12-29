@@ -25,20 +25,13 @@ class Tasks_Edition extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-   //console.log('має визиватися лише один раз!!!', nextProps.tasks_edition)
-   // if (nextProps.tasks_edition !== this.state.task) {
     this.setState({task: nextProps.tasks_edition})
-   // }
   }
 
   handleChange(field, element) {
     this.state.task[field] = element.target.value
     this.setState({ task: this.state.task });
   }
-
-  // handleChange(field, element) {
-  //   this.state.task[field] = element.target.value
-  // }
 
   render () {
     const {task} = this.state
@@ -54,16 +47,16 @@ class Tasks_Edition extends Component {
 
               <form className='form-group'>
                 <label>Title:</label>
-                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} />
+                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} required minlength="5" />
 
                 <label>Description:</label>
-                <input className='form-control' type="text" value={task.description} name='description' onChange={this.handleChange.bind(this, 'description')} />
+                <input className='form-control' type="text" value={task.description} name='description' onChange={this.handleChange.bind(this, 'description')} required />
 
                 <label>Priority:</label>
-                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} />
+                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} required />
 
                 <label>Date:</label>
-                <input className='form-control' type="date" value={task.due_date} name='due_date' onChange={this.handleChange.bind(this, 'due_date')} />
+                <input className='form-control' type="date" value={task.due_date} name='due_date' onChange={this.handleChange.bind(this, 'due_date')} required />
 
                 <br/>
 
