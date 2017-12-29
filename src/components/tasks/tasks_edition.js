@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getTask } from '../../actions/tasks';
 
 import Menu from '../layouts/menu';
+import { editTask } from '../../actions/tasks';
 
 
 class Tasks_Edition extends Component {
@@ -25,16 +26,20 @@ class Tasks_Edition extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    this.setState({task: nextProps.tasks_edition})
+    this.setState({task: nextProps.tasks_edition});
   }
 
   handleChange(field, element) {
-    this.state.task[field] = element.target.value
+    this.state.task[field] = element.target.value;
     this.setState({ task: this.state.task });
   }
 
+  handleSubmit() {
+    this.props.onEditTask(this.state);
+  }
+
   render () {
-    const {task} = this.state
+    const {task} = this.state;
     return (
       <div>
         <Menu/>
@@ -45,9 +50,9 @@ class Tasks_Edition extends Component {
           <div className='col-sm-6'>
             <h2 className='text-center'>Task update</h2>
 
-              <form className='form-group'>
+              <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
                 <label>Title:</label>
-                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} required minlength="5" />
+                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} required minLength="5" />
 
                 <label>Description:</label>
                 <input className='form-control' type="text" value={task.description} name='description' onChange={this.handleChange.bind(this, 'description')} required />
@@ -75,9 +80,15 @@ export default connect(
   state => ({
     tasks_edition: state.tasks.edit
   }),
+
   dispatch => ({
     onGetTask: (id) => {
       dispatch(getTask(id));
+    },
+
+    onEditTask: (id) => {
+      console.log('Connecting onEditTask: success');
+      dispatch(editTask(id));
     }
   })
 )(Tasks_Edition);

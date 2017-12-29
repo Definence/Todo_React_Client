@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+
 const API_URL = `http://localhost:3000/tasks`;
 const headers = { 'Content-Type': 'application/json', }
 
@@ -55,16 +57,19 @@ export function deleteTask(id) {
   }
 }
 
-// export function taskUpdate(task) {
-//   return function(dispatch, getState) {
-//     let body = JSON.stringify({task: task});
+export function editTask(id){
+  console.log('Prepare for axios patching');
 
-//     axios.post(API_URL, body, { headers: headers })
-//       .then(res => {
-//         dispatch({ type: 'RESOURCES/TASKS/UPDATE', payload: res.data});
-//       })
-//       .catch(error => {
-//         console.error(error);
-//       })
-//   }
-// }
+  return function(dispatch, getState) {
+    axios.patch(`${API_URL}/${id}`, { headers: headers })
+    .then(res => {
+      dispatch({ type: 'RESOURCES/TASKS/EDIT', payload: res.data });
+      //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Update task" } });
+      console.log('Dispatching editTask: success!');
+    })
+    .catch(e => {
+      console.error("Dispatching editTask: failed! ", e);
+      //dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: "Could not update task" } });
+    })
+  }
+}

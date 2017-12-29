@@ -44,7 +44,7 @@ class Form extends React.Component {
       <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
 
         <label>Title:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required minLength="5" />
 
         <label>Description:</label>
         <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' required />
