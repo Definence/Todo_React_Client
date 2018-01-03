@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTask } from '../../actions/tasks';
+import { browserHistory } from 'react-router'
 
 import Menu from '../layouts/menu';
-import { editTask } from '../../actions/tasks';
+import { getTask, editTask } from '../../actions/tasks';
 
 
 class Tasks_Edition extends Component {
@@ -34,8 +34,12 @@ class Tasks_Edition extends Component {
     this.setState({ task: this.state.task });
   }
 
-  handleSubmit() {
-    this.props.onEditTask(this.state);
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onEditTask(this.state.task);
+    const { router } = this.props,
+      path=`/`;
+    router.push(path);
   }
 
   render() {
@@ -86,9 +90,9 @@ export default connect(
       dispatch(getTask(id));
     },
 
-    onEditTask: (id) => {
+    onEditTask: (task) => {
       console.log('Connecting onEditTask: success');
-      dispatch(editTask(id));
+      dispatch(editTask(task));
     }
   })
 )(Tasks_Edition);

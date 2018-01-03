@@ -57,19 +57,19 @@ export function deleteTask(id) {
   }
 }
 
-export function editTask(id){
-  console.log('Prepare for axios patching');
+export function editTask(task){
+  let body = JSON.stringify({task: task});
 
   return function(dispatch, getState) {
-    axios.patch(`${API_URL}/${id}`, { headers: headers })
-    .then(res => {
-      dispatch({ type: 'RESOURCES/TASKS/EDIT', payload: res.data });
-      //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Update task" } });
-      console.log('Dispatching editTask: success!');
-    })
-    .catch(e => {
-      console.error("Dispatching editTask: failed! ", e);
-      //dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: "Could not update task" } });
-    })
+    axios.patch(`${API_URL}/${task.id}`, body, { headers: headers })
+      .then(res => {
+        dispatch({ type: 'RESOURCES/TASKS/EDIT', payload: res.data });
+        //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Update task" } });
+        console.log('Dispatching editTask: success!');
+      })
+      .catch(e => {
+        console.error("Dispatching editTask: failed! ", e);
+        //dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: "Could not update task" } });
+      })
   }
 }
