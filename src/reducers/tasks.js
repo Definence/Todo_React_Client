@@ -30,6 +30,13 @@ export default function tasks(state = initState, action) {
     };
 
   }
+  // else if (action.type === 'RESOURCES/TASKS/GET/ID/COMPLETE') {
+  //   //state.tasks = state.tasks.filter(el => el.id !== action.payload.id);
+  //   return {
+  //     ...state,
+  //     all: action.payload
+  //   };
+  // }
 
   //console.log('STATE', state)
 
