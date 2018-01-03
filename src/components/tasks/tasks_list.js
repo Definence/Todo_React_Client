@@ -19,13 +19,6 @@ class TasksList extends Component {
 
   handleDestroy (id) {
     this.props.onDestroyTask(id);
-    // axios.delete(`${API_URL}/${id}`, { headers: headers })
-    //   .then(res => {
-
-    //   })
-    //   .catch(e => {
-    //     console.error("error", e);
-    //   })
   }
 
   render() {

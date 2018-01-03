@@ -37,9 +37,10 @@ class Tasks_Edition extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onEditTask(this.state.task);
-    const { router } = this.props,
-      path=`/`;
-    router.push(path);
+              //redirect
+    // const { router } = this.props,
+    //   path=`/`;
+    // router.push(path);
   }
 
   render() {
