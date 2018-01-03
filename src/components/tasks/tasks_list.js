@@ -40,8 +40,8 @@ class TasksList extends Component {
               <div key={task.id}>
               <br />
                 <li className="li_height hover1 for_icons">
-                  <div className="col-xs-7" style={{backgroundColor: 'green'}} >{ task.title }</div>
-                  <div className="col-xs-2" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
+                  <div className="col-xs-8" style={{backgroundColor: 'green'}} >{ task.title }</div>
+                  <div className="col-xs-1" style={{backgroundColor: 'grey'}} >{ task.priority }</div>
                   <div className="col-xs-3 hover2" >
 
                     <Link to={`/tasks/${task.id}/edit`} >

@@ -19,9 +19,9 @@ export default function tasks(state = initState, action) {
 
   } else if (action.type === 'RESOURCES/TASKS/DELETE') {
       return {
-        ...state,
-        all: state.all.filter(el => el.id !== action.payload)
-      };
+      ...state,
+      all: state.all.filter(el => el.id !== action.payload)
+    };
 
   } else if (action.type === 'RESOURCES/TASKS/GET/ID') {
     return {
