@@ -10,9 +10,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import './index.css';
 import reducer from './reducers';
-//import Task from './components/tasks/task_show';
 import Tasks_Index from './components/tasks/tasks_index';
 import Tasks_Edition from './components/tasks/tasks_edition';
+import Task_Profile from './components/tasks/task_profile';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -21,8 +21,9 @@ const history = syncHistoryWithStore(hashHistory, store);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Tasks_Index}/>
-      <Route path="/tasks/:id/edit" component={Tasks_Edition}/>
+      <Route path="/" component={Tasks_Index} />
+      <Route path="/tasks/:id/edit" component={Tasks_Edition} />
+      <Route path="/tasks/:id/profile" component={Task_Profile} />
     </Router>
   </Provider>,
   document.getElementById('root')

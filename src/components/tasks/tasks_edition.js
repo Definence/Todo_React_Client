@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router'
+//import { browserHistory } from 'react-router'
 
 import Menu from '../layouts/menu';
 import { getTask, editTask } from '../../actions/tasks';
@@ -45,6 +45,7 @@ class Tasks_Edition extends Component {
 
   render() {
     const {task} = this.state;
+    console.log(this.props.params);
     return (
       <div>
         <Menu/>

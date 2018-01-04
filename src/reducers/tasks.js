@@ -1,6 +1,7 @@
 let initState = {
   all: [],
-  edit: {}
+  edit: {},
+  show: '',
 }
 
 export default function tasks(state = initState, action) {
