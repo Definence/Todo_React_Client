@@ -4,12 +4,18 @@ import { connect } from 'react-redux';
 //import { browserHistory } from 'react-router'
 
 import Menu from '../layouts/menu';
+import { getTask } from '../../actions/tasks';
 
 
 class Task_Profile extends Component {
 
+  componentDidMount () {
+    let id = this.props.params.id;
+    this.props.onGetTask(id);
+  };
+
   render () {
-    console.log(this.props.params);
+    console.log();
     return (
       <div>
         <Menu />
@@ -37,5 +43,12 @@ class Task_Profile extends Component {
 export default connect(
   state => ({
     // task: state.tasks.tasks.filter(t => t.id === state.tasks.show)
+  }),
+
+  dispatch => ({
+    onGetTask: (id) => {
+      dispatch(getTask(id));
+    },
   })
+
 )(Task_Profile);

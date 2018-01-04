@@ -20,6 +20,7 @@ class Tasks_Edition extends Component {
     };
   }
 
+  //витягує з бекенду пропси таска
   componentDidMount () {
     let id = this.props.params.id;
     this.props.onGetTask(id);
@@ -45,7 +46,7 @@ class Tasks_Edition extends Component {
 
   render() {
     const {task} = this.state;
-    console.log(this.props.params);
+    // console.log(this.props.params);
     return (
       <div>
         <Menu/>
@@ -93,8 +94,9 @@ export default connect(
     },
 
     onEditTask: (task) => {
-      console.log('Connecting onEditTask: success');
+      //console.log('Connecting onEditTask: success');
       dispatch(editTask(task));
     }
   })
+
 )(Tasks_Edition);

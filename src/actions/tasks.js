@@ -1,4 +1,5 @@
 import axios from 'axios';
+//import cookie from 'react-cookie';
 
 
 const API_URL = `http://localhost:3000/tasks`;
@@ -20,9 +21,11 @@ export function getTasks() {
 }
 
 export function getTask(id) {
+  console.log('current task id: ', id);
   return function(dispatch, getState) {
     axios.get(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
+        console.log('axios get querry: success');
         dispatch({ type: 'RESOURCES/TASKS/GET/ID', payload: res.data });
       })
       .catch(e => {
