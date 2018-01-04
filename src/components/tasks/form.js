@@ -48,7 +48,7 @@ class Form extends React.Component {
         <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' required />
 
         <label>Priority:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' required />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' required max="9999" />
 
         <label>Date:</label>
         <input className='form-control' onChange={ this.handleChange.bind( this, 'due_date') } type="date" placeholder='Enter a date' required />

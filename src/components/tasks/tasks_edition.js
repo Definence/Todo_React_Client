@@ -59,13 +59,13 @@ class Tasks_Edition extends Component {
 
               <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
                 <label>Title:</label>
-                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} required minLength="5" />
+                <input className='form-control' type="text" value={task.title} name='title' onChange={this.handleChange.bind(this, 'title')} required minLength="5" maxLength="30" />
 
                 <label>Description:</label>
                 <input className='form-control' type="text" value={task.description} name='description' onChange={this.handleChange.bind(this, 'description')} required />
 
                 <label>Priority:</label>
-                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} required />
+                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} required max="9999" />
 
                 <label>Date:</label>
                 <input className='form-control' type="date" value={task.due_date} name='due_date' onChange={this.handleChange.bind(this, 'due_date')} required />
