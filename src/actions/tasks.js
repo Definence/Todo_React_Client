@@ -21,11 +21,11 @@ export function getTasks() {
 }
 
 export function getTask(id) {
-  console.log('current task id: ', id);
+  //console.log('current task id: ', id);
   return function(dispatch, getState) {
     axios.get(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
-        console.log('axios get querry: success');
+        //console.log('axios get querry: success');
         dispatch({ type: 'RESOURCES/TASKS/GET/ID', payload: res.data });
       })
       .catch(e => {
@@ -68,7 +68,7 @@ export function editTask(task) {
       .then(res => {
         dispatch({ type: 'RESOURCES/TASKS/EDIT', payload: res.data });
         //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Update task" } });
-        console.log('Dispatching editTask: success!');
+        //console.log('Dispatching editTask: success!');
       })
       .catch(e => {
         console.error("Dispatching editTask: failed! ", e);

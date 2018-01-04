@@ -18,14 +18,13 @@ class Task_Profile extends Component {
     const { task } = this.props
     //  те ж саме, що й попереднє
     //const task = this.props.task
-    console.log(task);
     return (
       <div>
         <Menu />
 
         <div className='container'>
-          <div className='col-sm-3 col-xs-1' />
-          <div className='col-sm-6 col-xs-10'>
+          <div className='col-sm-3 col-xs-2' />
+          <div className='col-sm-6 col-xs-8'>
 
             <h2 className='text-center'>Task profile</h2>
 
@@ -36,9 +35,9 @@ class Task_Profile extends Component {
             <p>
               <b>Status: </b>
               {task.active ? (
-                'Completed'
+                'Completed task'
               ) : (
-                'Current'
+                'Current task'
               )}
             </p>
 
