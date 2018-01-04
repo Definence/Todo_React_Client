@@ -36,6 +36,6 @@ class Task_Profile extends Component {
 
 export default connect(
   state => ({
-    task: state.tasks.tasks.filter(t => t.id === state.tasks.show)
+    // task: state.tasks.tasks.filter(t => t.id === state.tasks.show)
   })
 )(Task_Profile);
