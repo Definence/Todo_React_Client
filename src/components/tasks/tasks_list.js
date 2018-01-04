@@ -102,7 +102,7 @@ class TasksList extends Component {
 
 export default connect(
   state => ({
-    tasks: state.tasks.all
+    tasks: state.tasks.items
   }),
   dispatch => ({
     onDestroyTask: (id) => {

@@ -85,7 +85,7 @@ class Tasks_Edition extends Component {
 
 export default connect(
   state => ({
-    tasks_edition: state.tasks.edit
+    tasks_edition: state.tasks.item
   }),
 
   dispatch => ({

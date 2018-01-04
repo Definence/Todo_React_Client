@@ -15,7 +15,10 @@ class Task_Profile extends Component {
   };
 
   render () {
-    console.log();
+    const { task } = this.props
+    //  те ж саме, що й попереднє
+    //const task = this.props.task
+    console.log(task);
     return (
       <div>
         <Menu />
@@ -26,11 +29,18 @@ class Task_Profile extends Component {
 
             <h2 className='text-center'>Task profile</h2>
 
-            <p>Title: {  }</p>
-            <p>Description: {  }</p>
-            <p>Priority: {  }</p>
-            <p>Date: {  }</p>
-            <p>Status: {  }</p>
+            <p><b>Title: </b>{ task.title }</p>
+            <p><b>Description: </b>{ task.description }</p>
+            <p><b>Priority: </b>{ task.priority }</p>
+            <p><b>Date: </b>{ task.due_date }</p>
+            <p>
+              <b>Status: </b>
+              {task.active ? (
+                'Completed'
+              ) : (
+                'Current'
+              )}
+            </p>
 
           </div>
         </div>
@@ -42,7 +52,7 @@ class Task_Profile extends Component {
 
 export default connect(
   state => ({
-    // task: state.tasks.tasks.filter(t => t.id === state.tasks.show)
+    task: state.tasks.item
   }),
 
   dispatch => ({
