@@ -65,7 +65,7 @@ class Tasks_Edition extends Component {
                 <input className='form-control' type="text" value={task.description} name='description' onChange={this.handleChange.bind(this, 'description')} required />
 
                 <label>Priority:</label>
-                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} required max="9999" />
+                <input className='form-control' type="number" value={task.priority} name='priority' onChange={this.handleChange.bind(this, 'priority')} required min="-9999" max="9999" />
 
                 <label>Date:</label>
                 <input className='form-control' type="date" value={task.due_date} name='due_date' onChange={this.handleChange.bind(this, 'due_date')} required />
