@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 const Navbar = ({ownProps}) => {
-  //визначає нинішній паз
+  //визначає нинішній path
   let pathname = ownProps.routing.locationBeforeTransitions.pathname
 
   //функціяб що:

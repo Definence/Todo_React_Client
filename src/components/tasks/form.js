@@ -1,4 +1,4 @@
-import React  from 'react';
+  import React  from 'react';
 //import axios from 'axios';
 import { connect } from 'react-redux';
 import { addTask  } from '../../actions/tasks';
@@ -42,7 +42,7 @@ class Form extends React.Component {
       <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
 
         <label>Title:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required minLength="5" />
+        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required minLength="5" maxLength="30" />
 
         <label>Description:</label>
         <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' required />

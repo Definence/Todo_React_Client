@@ -20,6 +20,7 @@ class Task_Profile extends Component {
     //const task = this.props.task
     return (
       <div>
+
         <Menu />
 
         <div className='container'>
