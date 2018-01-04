@@ -25,6 +25,7 @@ const Navbar = ({ownProps}) => {
 
   //навбар
   return (
+
     <div>
       <div className="navbar navbar-default">
         <div className="container-fluid">
@@ -47,6 +48,7 @@ const Navbar = ({ownProps}) => {
         </div>
       </div>
     </div>
+
   );
 }
 
@@ -57,24 +59,58 @@ export default connect(
   })
 )(Navbar);
 
-// <nav className="navbar navbar-default" role="navigation">
+
+// <div>
+//   <div className="navbar navbar-default">
+//     <div className="container-fluid">
+
+//       <div className="row">
+//         <ul>
+
+//           <div className="col-xs-12 col-sm-9 col-md-10">
+//             {li("", 'ToDo')}
+//             {li("/", 'Main')}
+//           </div>
+
+//           <div className='col-xs-12 col-sm-3 col-md-2'>
+//             {li("/user/log_in", 'Log in')}
+//             {li("/user/sign_up", 'Sign up')}
+//           </div>
+
+//         </ul>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+
+
+
+
+
+
+
+
+
+
+
+// <nav className="navbar navbar-default">
 //   <div className="container-fluid">
 //     <div className="navbar-header">
-//       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-//         <span className="sr-only">Toggle navigation</span>
+//       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
 //         <span className="icon-bar"></span>
 //         <span className="icon-bar"></span>
 //         <span className="icon-bar"></span>
 //       </button>
-//       <a className="navbar-brand" href="#">Название сайта</a>
+//       <a className="navbar-brand" href="#">Brand</a>
 //     </div>
-//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+//     <div className="collapse navbar-collapse" id="navbar-main">
 //       <ul className="nav navbar-nav">
-//         <li className="active"><a href="#">Пункт 1</a></li>
-//         <li><a href="#">Пункт 2</a></li>
-//         <li><a href="#">Пункт 3</a></li>
-//         <li><a href="#">Пункт 4</a></li>
-//         <li><a href="#">Пункт 5</a></li>
+//         <li className="active"><a href="#">Ссылка 1</a></li>
+//         <li><a href="#">Ссылка 2</a></li>
+//         <li><a href="#">Ссылка 3</a></li>
+//         <li><a href="#">Ссылка 4</a></li>
+//         <li><a href="#">Ссылка 5</a></li>
 //       </ul>
 //     </div>
 //   </div>
