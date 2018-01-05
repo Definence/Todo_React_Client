@@ -1,12 +1,21 @@
 npm init -y 							//створює пакет json
+
 npm i -S --save 						//створює пусту папку модулів нод
+
 npm i -S react react-dom  					//установка реакт, створює модулі в папкі нод, ?конектить реакт з хтмл?
+
 npm i -D --save-dev     					//devDependencies in NPM ?do nothing?
+
 npm i -D babel-core babel-loader  				//?Setting up React for ES6 with Webpack and Babel?
+
 	babel-preset-es2015
+
 	babel-preset-react react-hot-loader
+
 	webpack webpack-dev-server
+
 npm i -g webpack webpack-dev-server  				//глобальна установка вебпаку і девсерверу
+
 touch webpack.config.js 					//створює файл в якому будуть налаштування вебпак
 --------------------------------------------------------------------------------------------------------------------------------------------------
 				!!!		Monster edition		!!!
@@ -38,17 +47,22 @@ npm install react-router --save  				//router
 
 npm install --save redux-thunk					//redux-thunk
 
-npm i redux-devtools-extension --save 				//devtools extension
+npm i redux-devtools-extension --save 	//devtools extension
 
-npm install --save react-router-redux				//не обовязково
+npm install --save react-router-redux		//не обовязково
 
 npm install react-cookies --save 				//react-cookies
 
 
 store тимчасове сховище... 																											//сховище
-provider вик для тогоб щоб можна було дістати стор з любої частини проекту...		//дає доступ до сховища
-	передає стор у всі чайлдвові компоненти
+
+provider вик для тогоб щоб можна було дістати стор з любої частини проекту...
+	передає стор у всі чайлдвові компоненти																				//дає доступ до сховища
+
 actions(запрос на бек-енд) 																											//запит на бекенд
+
 dispatch 																																				//викликає редюсер
+
 reduser(засовує в store дані які прийшли з бeк-енду)														//передає дані бекенд->стор
-ref 			//вик для оновлення одного елемента без оновлення всього потоку
+
+ref																																				 			//вик для оновлення одного елемента без оновлення всього потоку
