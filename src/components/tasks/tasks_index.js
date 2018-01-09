@@ -1,11 +1,11 @@
 import React from 'react';
 // import { connect } from 'react-redux';
+// import { Link } from 'react-router';
 
 // import { getTasks } from '../../actions/tasks';
 import Menu from '../layouts/menu';
 import TasksList from './tasks_list';
-import Form from './form';
-// import { Link } from 'react-router';
+import Task_Form from './task_form';
 
 
 const Tasks_Index = () => {
@@ -22,7 +22,7 @@ const Tasks_Index = () => {
           </div>
 
           <div className="col-sm-4">
-            <Form />
+            <Task_Form />
           </div>
 
         </div>

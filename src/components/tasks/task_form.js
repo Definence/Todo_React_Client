@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addTask  } from '../../actions/tasks';
 
 
-class Form extends React.Component {
+class Task_Form extends React.Component {
   //initial state форми
   constructor() {
     super();
@@ -72,4 +72,4 @@ export default connect(
       dispatch(addTask(task));
     }
   })
-)(Form);
+)(Task_Form);

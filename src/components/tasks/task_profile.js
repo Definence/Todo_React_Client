@@ -27,7 +27,7 @@ class Task_Profile extends Component {
           <div className='col-sm-3 col-xs-2' />
           <div className='col-sm-6 col-xs-8'>
 
-            <h2 className='text-center'>Task profile</h2>
+            <h2>Task profile</h2>
 
             <p><b>Title: </b>{ task.title }</p>
             <p><b>Description: </b>{ task.description }</p>

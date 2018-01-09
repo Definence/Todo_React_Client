@@ -17,9 +17,12 @@ npm i -D babel-core babel-loader  				//?Setting up React for ES6 with Webpack a
 npm i -g webpack webpack-dev-server  				//глобальна установка вебпаку і девсерверу
 
 touch webpack.config.js 					//створює файл в якому будуть налаштування вебпак
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 				!!!		Monster edition		!!!
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
 sudo npm install -g create-react-app		 		//установка `реакт
 
 create-react-app todo						//створення програми реакт
@@ -39,7 +42,13 @@ npm install --save react react-dom
 
 
 npm install --save react-bootstrap				//установка бутстрап
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"> - паблік
+<link href=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css " rel="stylesheet "/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js "></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- <script src="js/bootstrap.js "></script> -->
 
 npm install axios 						//axios
 
@@ -66,3 +75,6 @@ dispatch 																																				//викликає редюсер
 reduser(засовує в store дані які прийшли з бeк-енду)														//передає дані бекенд->стор
 
 ref																																				 			//вик для оновлення одного елемента без оновлення всього потоку
+
+------------------------------------------------------------------------------------------------------------------------------
+

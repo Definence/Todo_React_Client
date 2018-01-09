@@ -7,7 +7,7 @@ const Navbar = ({ownProps}) => {
   let pathname = ownProps.routing.locationBeforeTransitions.pathname
 
   //функціяб що:
-  function li(link_to, text) {
+  function link(link_to, text) {
     //порівнює паз з лінками. активний виділяє
     let if_active = "";
     if (pathname === link_to) {
@@ -23,32 +23,51 @@ const Navbar = ({ownProps}) => {
     );
   }
 
-  //навбар
+  //691> норм меню
   return (
-
     <div>
-      <div className="navbar navbar-default">
+
+      <nav className="navbar navbar-default" role="navigation">
         <div className="container-fluid">
+          <div className="navbar-header">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a className="navbar-brand" href="#">TODO</a>
+          </div>
 
-          <div className="row">
-            <ul>
+          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul className="nav navbar-nav">
+              {link("/", 'Main')}
+              {link("/users/log_in", 'Log in')}
+              {link("/users/sign_up", 'Sign up')}
+            </ul>
 
-              <div className="col-xs-12 col-sm-9 col-md-10">
-                {li("", 'ToDo')}
-                {li("/", 'Main')}
-              </div>
+            <ul className="nav navbar-nav navbar-right">
 
-              <div className='col-xs-12 col-sm-3 col-md-2'>
-                {li("/user/log_in", 'Log in')}
-                {li("/user/sign_up", 'Sign up')}
-              </div>
+              <li className="dropdown">
+
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  Signed in as: username
+                  <b className="caret"></b>
+                </a>
+
+                <ul className="dropdown-menu">
+                  {link("/users/sign_out", 'Sign out')}
+                </ul>
+
+              </li>
 
             </ul>
+
           </div>
         </div>
-      </div>
-    </div>
+      </nav>
 
+    </div>
   );
 }
 
@@ -60,58 +79,38 @@ export default connect(
 )(Navbar);
 
 
-// <div>
-//   <div className="navbar navbar-default">
-//     <div className="container-fluid">
 
-//       <div className="row">
-//         <ul>
+//old menu
+// <nav className="navbar navbar-default" role="navigation">
 
-//           <div className="col-xs-12 col-sm-9 col-md-10">
-//             {li("", 'ToDo')}
-//             {li("/", 'Main')}
-//           </div>
-
-//           <div className='col-xs-12 col-sm-3 col-md-2'>
-//             {li("/user/log_in", 'Log in')}
-//             {li("/user/sign_up", 'Sign up')}
-//           </div>
-
-//         </ul>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-
-
-
-
-
-
-
-
-
-
-
-// <nav className="navbar navbar-default">
 //   <div className="container-fluid">
+
 //     <div className="navbar-header">
-//       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//         <span className="icon-bar"></span>
-//       </button>
-//       <a className="navbar-brand" href="#">Brand</a>
+//       <a className="navbar-brand" href="#">TODO</a>
 //     </div>
-//     <div className="collapse navbar-collapse" id="navbar-main">
+
+//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 //       <ul className="nav navbar-nav">
-//         <li className="active"><a href="#">Ссылка 1</a></li>
-//         <li><a href="#">Ссылка 2</a></li>
-//         <li><a href="#">Ссылка 3</a></li>
-//         <li><a href="#">Ссылка 4</a></li>
-//         <li><a href="#">Ссылка 5</a></li>
+//         {li("/", 'Main')}
+//         {li("/users/log_in", 'Log in')}
+//         {li("/users/sign_up", 'Sign up')}
 //       </ul>
+
+//       <ul className="nav navbar-nav navbar-right">
+
+//         <li className="dropdown">
+//           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+//             Signed in as: username
+//             <b className="caret"></b>
+//           </a>
+//           <ul className="dropdown-menu">
+//             {li("/users/sign_out", 'Sign out')}
+//           </ul>
+//         </li>
+
+//       </ul>
+
 //     </div>
 //   </div>
 // </nav>

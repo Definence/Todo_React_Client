@@ -42,6 +42,8 @@ class Tasks_Edition extends Component {
     // const { router } = this.props,
     //   path=`/`;
     // router.push(path);
+
+    //browserHistory.push('#/users/log_in');
   }
 
   render() {
