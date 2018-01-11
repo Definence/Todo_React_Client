@@ -50,15 +50,17 @@ npm install --save react-bootstrap				//установка бутстрап
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- <script src="js/bootstrap.js "></script> -->
 
-npm install axios 						//axios
+npm install axios 											//установка axios
 
-npm install react-router --save  				//router
+npm install react-router --save  				//установка router
 
-npm install --save redux-thunk					//redux-thunk
+npm install --save redux-thunk					//установка redux-thunk
 
 npm i redux-devtools-extension --save 	//devtools extension
 
 npm install --save react-router-redux		//не обовязково
+
+npm install react-cookie								//установка react cookie
 
 npm install react-cookies --save 				//react-cookies
 

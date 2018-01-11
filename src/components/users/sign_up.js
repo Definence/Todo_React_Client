@@ -1,71 +1,98 @@
 import React from 'react';
 // import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Menu from '../layouts/menu';
+import { addUser  } from '../../actions/users';
 
 
-const Sign_up = () => {
-  return (
-    <div>
+class Sign_up extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {
+        email: '',
+        username: '',
+        firstname: '',
+        lastname: '',
+        password: '',
+        password_confirmation: ''
+      }
+    };
+  }
 
-      <Menu />
+  handleChange(field, element) {
+    this.state.user[field] = element.target.value
+    //console.log(element.target.value)
+  }
 
-      <div className='col-sm-3 col-md-4' />
+  handleSubmit() {
+    this.props.onAddUser(this.state.user)
+    //console.log(this.state.user)
+  }
 
-      <div className='col-sm-6 col-md-4' >
+  render() {
+    return (
+      <div>
 
-        <h2 className='text-center'>Sign up</h2>
+        <Menu />
 
-        <form className='form-horizontal' >
+        <div className='col-sm-3 col-md-4' />
 
-          <div>
-            <label>Email:</label>
-            <input className='form-control' placeholder="Enter your email" type="email" />
-          </div>
+        <div className='col-sm-6 col-md-4' >
 
-          <div>
-            <label>Username:</label>
-            <input className='form-control' placeholder="Enter a username" type="text" />
-          </div>
+          <h2 className='text-center'>Sign up</h2>
 
-          <div>
-            <label>Firstname:</label>
-            <input className='form-control' placeholder="Enter your firstname" type="text" />
-          </div>
+          <form className='form-horizontal' onSubmit={this.handleSubmit.bind(this)} >
 
-          <div>
-            <label>Lastname:</label>
-            <input className='form-control' placeholder="Enter your lastname" type="text" />
-          </div>
+            <div>
+              <label>Email:</label>
+              <input className='form-control' placeholder="Enter your email" type="email" onChange={this.handleChange.bind(this, 'email')} />
+            </div>
 
-          <div>
-            <label>Password:</label>
-            <input className='form-control' placeholder="Enter a password" type="password" />
-          </div>
+            <div>
+              <label>Username:</label>
+              <input className='form-control' placeholder="Enter a username" type="text" onChange={this.handleChange.bind(this, 'username')} />
+            </div>
 
-          <div>
-            <label>Password verification:</label>
-            <input className='form-control' placeholder="Enter a password" type="password" />
-          </div>
+            <div>
+              <label>Firstname:</label>
+              <input className='form-control' placeholder="Enter your firstname" type="text" onChange={this.handleChange.bind(this, 'firstname')} />
+            </div>
 
-          <br />
+            <div>
+              <label>Lastname:</label>
+              <input className='form-control' placeholder="Enter your lastname" type="text" onChange={this.handleChange.bind(this, 'lastname')} />
+            </div>
 
-          <button type="submit" className="btn btn-primary center-block">Sign up</button>
+            <div>
+              <label>Password:</label>
+              <input className='form-control' placeholder="Enter a password" type="password" onChange={this.handleChange.bind(this, 'password')} />
+            </div>
 
-        </form>
+            <div>
+              <label>Password confirmation:</label>
+              <input className='form-control' placeholder="Enter a password" type="password" onChange={this.handleChange.bind(this, 'password_confirmation')} />
+            </div>
+
+            <br />
+
+            <button type="submit" className="btn btn-primary center-block">Sign up</button>
+
+          </form>
+        </div>
+
       </div>
+    );
 
-    </div>
-  );
-}
+    }
+  }
 
-
-export default Sign_up;
-// export default connect(
-//   state => ({}),
-//   dispatch => ({
-//     onAddUser: (state) => {
-//       dispatch(signUp(state));
-//     }
-//   })
-// )(Sign_up);
+export default connect(
+  state => ({}),
+  dispatch => ({
+    onAddUser: (user) => {
+      dispatch(addUser(user));
+    }
+  })
+)(Sign_up);
