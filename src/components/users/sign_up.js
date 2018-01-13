@@ -26,7 +26,8 @@ class Sign_up extends React.Component {
     //console.log(element.target.value)
   }
 
-  handleSubmit() {
+  handleSubmit(element) {
+    element.preventDefault();
     this.props.onAddUser(this.state.user)
     //console.log(this.state.user)
   }

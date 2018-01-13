@@ -1,47 +1,50 @@
-npm init -y 							//створює пакет json
+------------------------------------------------------------------------------------------------------------------------------
 
-npm i -S --save 						//створює пусту папку модулів нод
+				Monster edition
 
-npm i -S react react-dom  					//установка реакт, створює модулі в папкі нод, ?конектить реакт з хтмл?
-
-npm i -D --save-dev     					//devDependencies in NPM ?do nothing?
-
-npm i -D babel-core babel-loader  				//?Setting up React for ES6 with Webpack and Babel?
-
-	babel-preset-es2015
-
-	babel-preset-react react-hot-loader
-
-	webpack webpack-dev-server
-
-npm i -g webpack webpack-dev-server  				//глобальна установка вебпаку і девсерверу
-
-touch webpack.config.js 					//створює файл в якому будуть налаштування вебпак
-
---------------------------------------------------------------------------------------------------------------------------------------------------
-
-				!!!		Monster edition		!!!
-
---------------------------------------------------------------------------------------------------------------------------------------------------
-sudo npm install -g create-react-app		 		//установка `реакт
-
-create-react-app todo						//створення програми реакт
-
-npm start							//запуск сервера
-
-npm run build							//переробляє все в 2 файла(js and css) - не використовується
-
-npm install redux --save --save-exact     			//установка redux
-
-npm install react-redux --save --save-exact			//зєднання реакт і редакс
+------------------------------------------------------------------------------------------------------------------------------
 
 
-npm install bootstrap@3
+установка реакт
+
+>sudo npm install -g create-react-app
+
+
+створення програми реакт
+
+>create-react-app todo
+
+
+запуск сервера
+
+>npm start
+
+
+переробляє все в 2 файла(js and css) - не використовується
+
+>npm run build
+
+
+установка redux
+
+>npm install redux --save --save-exact
+
+
+зєднання реакт і редакс
+
+>npm install react-redux --save --save-exact
+
+
+установка бутстрап
+
+>npm install bootstrap@3
+
 	or
-npm install --save react react-dom
 
+>npm install --save react react-dom
 
-npm install --save react-bootstrap				//установка бутстрап
+>npm install --save react-bootstrap
+
 <link href=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css " rel="stylesheet "/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
@@ -50,19 +53,42 @@ npm install --save react-bootstrap				//установка бутстрап
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- <script src="js/bootstrap.js "></script> -->
 
-npm install axios 											//установка axios
 
-npm install react-router --save  				//установка router
+установка axios
 
-npm install --save redux-thunk					//установка redux-thunk
+>npm install axios
 
-npm i redux-devtools-extension --save 	//devtools extension
 
-npm install --save react-router-redux		//не обовязково
+установка router
 
-npm install react-cookie								//установка react cookie
+>npm install react-router --save
 
-npm install react-cookies --save 				//react-cookies
+
+установка redux-thunk
+
+>npm install --save redux-thunk
+
+
+devtools extension
+
+>npm i redux-devtools-extension --save
+
+
+>npm install --save react-router-redux
+
+
+установка react cookie
+
+>npm install react-cookie
+
+>npm install react-cookies --save
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+				Терміни:
+
+------------------------------------------------------------------------------------------------------------------------------
 
 
 store тимчасове сховище... 																											//сховище
@@ -78,5 +104,36 @@ reduser(засовує в store дані які прийшли з бeк-енду
 
 ref																																				 			//вик для оновлення одного елемента без оновлення всього потоку
 
+
 ------------------------------------------------------------------------------------------------------------------------------
+
+				Контролер сесій
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+генерація контролера сесій
+
+>rails generate controller Sessions new
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
