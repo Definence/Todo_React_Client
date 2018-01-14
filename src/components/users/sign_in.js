@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Menu from '../layouts/menu';
+import { signIn  } from '../../actions/users';
 
 
 class Sign_in extends React.Component {
@@ -65,7 +66,7 @@ class Sign_in extends React.Component {
 export default connect(
   state => ({}),
   dispatch => ({
-    onSignIn: (state) => {
+    onSignIn: (session) => {
       dispatch(signIn(session));
     }
   })

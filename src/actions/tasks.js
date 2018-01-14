@@ -1,5 +1,15 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 //import cookie from 'react-cookie';
+
+import {
+  GET_TASKS,
+  GET_TASK_ID,
+  ADD_TASK,
+  DELETE_TASK,
+  EDIT_TASK,
+  COMPLETE_TASK
+} from '../components/constants/action_types';
 
 
 const API_URL = `http://localhost:3000/tasks`;
@@ -11,7 +21,7 @@ export function getTasks() {
     axios.get(API_URL, { headers })
       .then(res => {
         if (res.status === 200) {
-          dispatch({ type: 'RESOURCES/TASKS/GET', payload: res.data });
+          dispatch({ type: GET_TASKS, payload: res.data });
         }
       })
       .catch(e => {
@@ -26,7 +36,7 @@ export function getTask(id) {
     axios.get(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
         //console.log('axios get querry: success');
-        dispatch({ type: 'RESOURCES/TASKS/GET/ID', payload: res.data });
+        dispatch({ type: GET_TASK_ID, payload: res.data });
       })
       .catch(e => {
         console.error("error: ", e);
@@ -40,7 +50,7 @@ export function addTask(task) {
 
     axios.post(API_URL, body, { headers: headers })
       .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/ADD', payload: res.data});
+        dispatch({ type: ADD_TASK, payload: res.data});
       })
       .catch(error => {
         console.error(error);
@@ -52,7 +62,7 @@ export function deleteTask(id) {
   return function(dispatch, getState) {
     axios.delete(`${API_URL}/${id}`, { headers: headers })
       .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/DELETE', payload: id });
+        dispatch({ type: DELETE_TASK, payload: id });
       })
       .catch(error => {
         console.error(error);
@@ -66,20 +76,17 @@ export function editTask(task) {
   return function(dispatch, getState) {
     axios.patch(`${API_URL}/${task.id}`, body, { headers: headers })
       .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/EDIT', payload: res.data });
-        //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Update task" } });
-        //console.log('Dispatching editTask: success!');
+        //dispatch({ type: EDIT_TASK, payload: res.data });
+        browserHistory.push('/');
+        location.reload()
       })
       .catch(e => {
         console.error("Dispatching editTask: failed! ", e);
-        //dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: "Could not update task" } });
       })
   }
 }
 
 export function completeTask(id, active) {
-  //console.log(active);
-
   return function(dispatch, getState) {
     if (active === true) {
       active = false
@@ -92,12 +99,10 @@ export function completeTask(id, active) {
 
     axios.patch(`${API_URL}/${task.id}`, body, { headers: headers })
       .then(res => {
-        dispatch({ type: 'RESOURCES/TASKS/GET/ID/COMPLETE', payload: res.data });
-        //dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "complete" } });
+        dispatch({ type: COMPLETE_TASK, payload: res.data });
       })
       .catch(e => {
         console.error("error: ", e);
-        //dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: "Could not completed task" } });
       })
   }
 }

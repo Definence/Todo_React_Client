@@ -40,3 +40,25 @@ export function signUp(user) {
 //     }
 //   }
 // }
+
+export function signIn(session){
+  return function(dispatch, getState) {
+    let body = JSON.stringify({ session: session });
+
+    console.log('action works!!!');
+    // axios.post(`${API_URL}/create_token`, body, { headers: headers })
+    //   .then(res => {
+    //     cookie.save('token', res.data, { path: '/' });
+    //     dispatch({ type: 'ADD_ALERT', payload: { type: "success", text: "Login successfully" } });
+
+    //     browserHistory.push('#/');
+    //     setTimeout(() => {
+    //       location.reload()
+    //     }, 1000)
+    //   })
+    //   .catch(e => {
+    //     console.error("error: ", e);
+    //     dispatch({ type: 'ADD_ALERT', payload: { type: "danger", text: <div>Could not create user<br /> {e}</div> }});
+    //   })
+  }
+}
