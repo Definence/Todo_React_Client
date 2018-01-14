@@ -59,7 +59,7 @@ class Task_Form extends React.Component {
 
         <br/>
 
-        <button type="submit" className="btn btn-primary form-group">Add</button>
+        <button type="submit" className="btn btn-primary center-block form-group">Add task</button>
 
       </form>
     );

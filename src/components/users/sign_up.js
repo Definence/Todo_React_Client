@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Menu from '../layouts/menu';
-import { addUser  } from '../../actions/users';
+import { signUp  } from '../../actions/users';
 
 
 class Sign_up extends React.Component {
@@ -28,7 +28,7 @@ class Sign_up extends React.Component {
 
   handleSubmit(element) {
     element.preventDefault();
-    this.props.onAddUser(this.state.user)
+    this.props.onSignUp(this.state.user)
     //console.log(this.state.user)
   }
 
@@ -42,7 +42,7 @@ class Sign_up extends React.Component {
 
         <div className='col-sm-6 col-md-4' >
 
-          <h2 className='text-center'>Sign up</h2>
+          <h2 className='text-center'>Sign up form</h2>
 
           <form className='form-horizontal' onSubmit={this.handleSubmit.bind(this)} >
 
@@ -78,7 +78,7 @@ class Sign_up extends React.Component {
 
             <br />
 
-            <button type="submit" className="btn btn-primary center-block">Sign up</button>
+            <button type="submit" className="btn btn-primary btn-lg center-block">Sign up</button>
 
           </form>
         </div>
@@ -92,8 +92,8 @@ class Sign_up extends React.Component {
 export default connect(
   state => ({}),
   dispatch => ({
-    onAddUser: (user) => {
-      dispatch(addUser(user));
+    onSignUp: (user) => {
+      dispatch(signUp(user));
     }
   })
 )(Sign_up);

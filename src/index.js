@@ -18,7 +18,7 @@ import Task_Profile from './components/tasks/task_profile';
 //user import
 import Sign_out from './components/users/sign_out';
 import Sign_up from './components/users/sign_up';
-import Log_in from './components/users/log_in';
+import Sign_in from './components/users/sign_in';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -36,12 +36,11 @@ ReactDOM.render(
       {
         //user routers
       }
-      <Route path="/users/log_in" component={Log_in} />
+      <Route path="/users/sign_in" component={Sign_in} />
       <Route path="/users/sign_up" component={Sign_up} />
       <Route path="/users/sign_out" component={Sign_out} />
     </Router>
   </Provider>,
-
   document.getElementById('root')
 );
 
