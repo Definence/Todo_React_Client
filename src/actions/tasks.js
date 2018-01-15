@@ -10,15 +10,12 @@ import {
   EDIT_TASK,
   COMPLETE_TASK
 } from '../components/constants/action_types';
-
-
-const API_URL = `http://localhost:3000/tasks`;
-const headers = { 'Content-Type': 'application/json', }
+import { TASKS_URL, headers } from '../components/constants/api_config';
 
 
 export function getTasks() {
   return function(dispatch, getState) {
-    axios.get(API_URL, { headers })
+    axios.get(TASKS_URL, { headers })
       .then(res => {
         if (res.status === 200) {
           dispatch({ type: GET_TASKS, payload: res.data });
@@ -33,7 +30,7 @@ export function getTasks() {
 export function getTask(id) {
   //console.log('current task id: ', id);
   return function(dispatch, getState) {
-    axios.get(`${API_URL}/${id}`, { headers: headers })
+    axios.get(`${TASKS_URL}/${id}`, { headers: headers })
       .then(res => {
         //console.log('axios get querry: success');
         dispatch({ type: GET_TASK_ID, payload: res.data });
@@ -48,7 +45,7 @@ export function addTask(task) {
   return function(dispatch, getState) {
     let body = JSON.stringify({task: task});
 
-    axios.post(API_URL, body, { headers: headers })
+    axios.post(TASKS_URL, body, { headers: headers })
       .then(res => {
         dispatch({ type: ADD_TASK, payload: res.data});
       })
@@ -60,7 +57,7 @@ export function addTask(task) {
 
 export function deleteTask(id) {
   return function(dispatch, getState) {
-    axios.delete(`${API_URL}/${id}`, { headers: headers })
+    axios.delete(`${TASKS_URL}/${id}`, { headers: headers })
       .then(res => {
         dispatch({ type: DELETE_TASK, payload: id });
       })
@@ -74,7 +71,7 @@ export function editTask(task) {
   let body = JSON.stringify({task: task});
 
   return function(dispatch, getState) {
-    axios.patch(`${API_URL}/${task.id}`, body, { headers: headers })
+    axios.patch(`${TASKS_URL}/${task.id}`, body, { headers: headers })
       .then(res => {
         //dispatch({ type: EDIT_TASK, payload: res.data });
         browserHistory.push('/');
@@ -97,7 +94,7 @@ export function completeTask(id, active) {
     let task = { id: id, active: active }
     let body = { task: task }
 
-    axios.patch(`${API_URL}/${task.id}`, body, { headers: headers })
+    axios.patch(`${TASKS_URL}/${task.id}`, body, { headers: headers })
       .then(res => {
         dispatch({ type: COMPLETE_TASK, payload: res.data });
       })
