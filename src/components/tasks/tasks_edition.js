@@ -30,20 +30,18 @@ class Tasks_Edition extends Component {
     this.setState({task: nextProps.tasks_edition});
   }
 
-  handleChange(field, element) {
-    this.state.task[field] = element.target.value;
-    this.setState({ task: this.state.task });
+  handleChange(field, e) {
+    // this.state.task[field] = element.target.value;
+    // this.setState({ task: this.state.task });
+    let new_task = Object.assign({}, this.state.task);
+    new_task[field] = e.target.value;
+    this.setState({ task: new_task });
+    //console.log(this.state.task)
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.onEditTask(this.state.task);
-              //redirect
-    // const { router } = this.props,
-    //   path=`/`;
-    // router.push(path);
-
-    //browserHistory.push('#/users/log_in');
   }
 
   render() {

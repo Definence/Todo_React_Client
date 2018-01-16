@@ -5,7 +5,7 @@ import React from 'react';
 // import { getTasks } from '../../actions/tasks';
 import Menu from '../layouts/menu';
 import TasksList from './tasks_list';
-import Task_Form from './task_form';
+import TaskForm from './task_form';
 
 
 const Tasks_Index = () => {
@@ -22,7 +22,7 @@ const Tasks_Index = () => {
           </div>
 
           <div className="col-sm-4">
-            <Task_Form />
+            <TaskForm />
           </div>
 
         </div>

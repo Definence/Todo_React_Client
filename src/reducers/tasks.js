@@ -3,7 +3,6 @@ import {
   GET_TASK_ID,
   ADD_TASK,
   DELETE_TASK,
-  EDIT_TASK,
   COMPLETE_TASK
 } from '../components/constants/action_types';
 

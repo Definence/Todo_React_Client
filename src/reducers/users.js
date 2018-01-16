@@ -1,9 +1,9 @@
-export default function token(state = {}, action) {
-  switch (action.type) {
-    case "RESOURCES/USERS/ADD":
-      return action.payload;
+// export default function token(state = {}, action) {
+//   switch (action.type) {
+//     case "RESOURCES/USERS/ADD":
+//       return action.payload;
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }

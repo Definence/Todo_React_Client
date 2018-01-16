@@ -1,11 +1,11 @@
-  import React  from 'react';
+import React  from 'react';
 //import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { addTask  } from '../../actions/tasks';
+import { addTask } from '../../actions/tasks';
 
 
-class Task_Form extends React.Component {
+class TaskForm extends React.Component {
   //initial state форми
   constructor() {
     super();
@@ -21,15 +21,32 @@ class Task_Form extends React.Component {
     };
   }
 
+  // componentDidMount () {
+  //   let userToken = localStorage.getItem('token');
+  //   this.props.checkToken(userToken);
+  //   //console.log(userToken);
+  // }
+
   //змінює стейт форми
-  handleChange(field, element) {
+  handleChange(field, e) {
     //змінює стейт active на протилежне
-    if (field === 'active')
-      this.state.task.active = !this.state.task.active
+    if (field === 'active') {
+      // this.state.task.active = !this.state.task.active
+      var new_task_active = Object.assign({}, this.state.task);
+      new_task_active['active'] = !new_task_active['active'];
+      this.setState({ task: new_task_active });
+    }
+
     //змінює стейт решти полів форми
-    else
-      this.state.task[field] = element.target.value
-    //console.log(this.state.task)
+    else {
+      // this.state.task[field] = e.target.value
+      //копіює стейт
+      var new_task = Object.assign({}, this.state.task);
+      //створює перемінну
+      new_task[field] = e.target.value;
+      //назначає новий стейт
+      this.setState({ task: new_task });
+    }
   }
 
   //сабмітить форму
@@ -71,6 +88,9 @@ export default connect(
   dispatch => ({
     onAddTask: (task) => {
       dispatch(addTask(task));
-    }
+    },
+    // onCheckToken: (token) => {
+    //   dispatch(checkToken(token))
+    // }
   })
-)(Task_Form);
+)(TaskForm);

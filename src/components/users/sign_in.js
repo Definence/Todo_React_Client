@@ -16,9 +16,10 @@ class Sign_in extends React.Component {
     };
   }
 
-  handleChange(field, element) {
-    this.state.session[field] = element.target.value;
-    //console.log(this.state.session);
+  handleChange(field, e) {
+    let new_session = Object.assign({}, this.state.session);
+    new_session[field] = e.target.value;
+    this.setState({ session: new_session });
   }
 
   handleSubmit(element) {
@@ -38,7 +39,7 @@ class Sign_in extends React.Component {
         <div className='col-sm-6 col-md-4' >
           <h2 className='text-center'>Log in form</h2>
 
-          <form className='form-horizontal' onSubmit= { this.handleSubmit.bind(this) } >
+          <form className='form-horizontal' onSubmit={ this.handleSubmit.bind(this) } >
 
             <div>
               <label>Email:</label>

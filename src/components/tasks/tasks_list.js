@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { getTasks, deleteTask, completeTask } from '../../actions/tasks';
 //import axios from 'axios';
 
-// const API_URL = `http://localhost:3000/tasks`;
-// const headers = { 'Content-Type': 'application/json', }
+import {
+  getTasks,
+  deleteTask,
+  completeTask,
+  //fetchToken
+} from '../../actions/tasks';
+
 
 class TasksList extends Component {
 
@@ -14,8 +18,11 @@ class TasksList extends Component {
   };
 
   componentDidMount () {
-    return this.context.store.dispatch(getTasks());
-  };
+    // this.props.onFetchToken();
+    // let token = localStorage.getItem('token');
+    // console.log(token);
+    this.context.store.dispatch(getTasks());
+  }
 
   handleComplete (id, active) {
     this.props.onCompleteTask(id, active);
@@ -111,5 +118,8 @@ export default connect(
     onCompleteTask: (id, active) => {
       dispatch(completeTask(id, active));
     },
+    // onFetchToken: (token) => {
+    //   dispatch(fetchToken(token))
+    // }
   })
 )(TasksList);

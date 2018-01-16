@@ -2,16 +2,27 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 //import cookie from 'react-cookie';
 
+import { TASKS_URL, headers } from '../components/constants/api_config';
 import {
   GET_TASKS,
   GET_TASK_ID,
   ADD_TASK,
   DELETE_TASK,
-  EDIT_TASK,
   COMPLETE_TASK
 } from '../components/constants/action_types';
-import { TASKS_URL, headers } from '../components/constants/api_config';
 
+
+// export function checkToken(token) {
+//   return function(dispatch, getState) {
+//     let body = JSON.stringify({token: token});
+//     axios.patch(`${TASKS_URL}/check_token`, body, { headers: headers })
+//       .then(res => {
+//       })
+//       .catch(e => {
+//         console.error("error: ", e);
+//       })
+//   }
+// }
 
 export function getTasks() {
   return function(dispatch, getState) {

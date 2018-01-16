@@ -21,12 +21,14 @@ class Sign_up extends React.Component {
     };
   }
 
-  handleChange(field, element) {
-    this.state.user[field] = element.target.value
-    //console.log(element.target.value)
+  handleChange(field, e) {
+    let new_user = Object.assign({}, this.state.user);
+    new_user[field] = e.target.value;
+    this.setState({ user: new_user });
   }
 
   handleSubmit(element) {
+    console.log(this.user)
     element.preventDefault();
     this.props.onSignUp(this.state.user)
     //console.log(this.state.user)
@@ -86,8 +88,8 @@ class Sign_up extends React.Component {
       </div>
     );
 
-    }
   }
+}
 
 export default connect(
   state => ({}),
