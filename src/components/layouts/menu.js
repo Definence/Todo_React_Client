@@ -6,7 +6,6 @@ const Navbar = ({ownProps}) => {
   //визначає нинішній path
   let pathname = ownProps.routing.locationBeforeTransitions.pathname
 
-  //функціяб що:
   function link(link_to, text) {
     //порівнює паз з лінками. активний виділяє
     let if_active = "";

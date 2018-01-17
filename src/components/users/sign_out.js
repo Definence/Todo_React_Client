@@ -1,28 +1,11 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-
-import Menu from '../layouts/menu';
+import { browserHistory } from 'react-router';
 
 
-const Exit = () => {
-  return (
-    <div>
-
-      <Menu />
-
-      exit
-
-    </div>
-  );
+export default class Sign_out extends React.Component {
+	componentWillMount() {
+		localStorage.removeItem('token');
+    browserHistory.push('#/users/sign_in');
+    location.reload()
+	}
 }
-
-export default Exit;
-
-// export default connect(
-//   state => ({}),
-//   dispatch => ({
-//     onExitUser: ( ) => {
-//       dispatch(exitUser());
-//     }
-//   })
-// )(Exit);

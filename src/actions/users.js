@@ -41,14 +41,14 @@ export function signIn(session){
   }
 }
 
-// export function signOut(session){
+// export function signOut(){
 //   return function(dispatch, getState) {
-//     let body = JSON.stringify({ session: session });
-//     axios.post(`${USERS_URL}/sign_in`, body, { headers: HEADERS })
+//     // let body = JSON.stringify({ session: session });
 
 //       .then(res => {
 //         localStorage.removeItem('token');
-//         console.error('OK');
+//         browserHistory.push('#/users/sign_in');
+//         location.reload()
 //       })
 //       .catch(e => {
 //         console.error("error: ", e);
