@@ -2,7 +2,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { Link } from 'react-router';
 
-import Menu from '../layouts/menu';
+import Navbar from '../layouts/navbar';
 import TasksList from './tasks_list';
 import TaskForm from './task_form';
 
@@ -11,7 +11,7 @@ const Tasks_Index = () => {
   return (
     <div>
 
-      <Menu/>
+      <Navbar />
 
       <div className="container">
         <div className="row">

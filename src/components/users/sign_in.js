@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Menu from '../layouts/menu';
+import Navbar from '../layouts/navbar';
 import { signIn  } from '../../actions/users';
 
 
@@ -32,7 +32,7 @@ class Sign_in extends React.Component {
     return (
       <div>
 
-        <Menu />
+        <Navbar />
 
         <div className='col-sm-3 col-md-4' />
 

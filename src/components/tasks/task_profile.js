@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { connect } from 'react-redux';
 //import { browserHistory } from 'react-router'
 
-import Menu from '../layouts/menu';
+import Navbar from '../layouts/navbar';
 import { getTask } from '../../actions/tasks';
 
 
@@ -21,7 +21,7 @@ class Task_Profile extends Component {
     return (
       <div>
 
-        <Menu />
+        <Navbar />
 
         <div className='container'>
           <div className='col-sm-3 col-xs-2' />

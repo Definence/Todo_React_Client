@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import { browserHistory } from 'react-router'
 
-import Menu from '../layouts/menu';
+import Navbar from '../layouts/navbar';
 import { getTask, editTask } from '../../actions/tasks';
 
 
@@ -49,7 +49,7 @@ class Tasks_Edition extends Component {
     // console.log(this.props.params);
     return (
       <div>
-        <Menu/>
+        <Navbar />
 
         <div className='container'>
           <div className='col-sm-3' />
