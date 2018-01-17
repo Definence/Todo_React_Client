@@ -4,4 +4,6 @@ export const USERS_URL = URL + '/users'
 
 export const TASKS_URL = URL + '/tasks'
 
-export const headers = { 'Content-Type': 'application/json', };
+export const HEADERS = new Headers({ 'Content-Type': 'application/json'})
+
+export const token = localStorage.getItem('token')

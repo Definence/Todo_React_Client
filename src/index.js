@@ -19,10 +19,13 @@ import Task_Profile from './components/tasks/task_profile';
 import Sign_out from './components/users/sign_out';
 import Sign_up from './components/users/sign_up';
 import Sign_in from './components/users/sign_in';
+// import { fetchUser } from './actions/users';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
+
+// store.dispatch(fetchUser())
 
 ReactDOM.render(
   <Provider store={store}>

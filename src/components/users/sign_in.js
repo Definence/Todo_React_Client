@@ -10,8 +10,8 @@ class Sign_in extends React.Component {
     super();
     this.state = {
       session: {
-        email: '',
-        password: ''
+        email: '1@1',
+        password: '1'
       }
     };
   }

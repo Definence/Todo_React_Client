@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-//import axios from 'axios';
 
 import {
   getTasks,
   deleteTask,
   completeTask,
-  //fetchToken
 } from '../../actions/tasks';
 
 
@@ -18,9 +16,6 @@ class TasksList extends Component {
   };
 
   componentDidMount () {
-    // this.props.onFetchToken();
-    // let token = localStorage.getItem('token');
-    // console.log(token);
     this.context.store.dispatch(getTasks());
   }
 
@@ -118,8 +113,5 @@ export default connect(
     onCompleteTask: (id, active) => {
       dispatch(completeTask(id, active));
     },
-    // onFetchToken: (token) => {
-    //   dispatch(fetchToken(token))
-    // }
   })
 )(TasksList);

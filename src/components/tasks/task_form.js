@@ -21,12 +21,6 @@ class TaskForm extends React.Component {
     };
   }
 
-  // componentDidMount () {
-  //   let userToken = localStorage.getItem('token');
-  //   this.props.checkToken(userToken);
-  //   //console.log(userToken);
-  // }
-
   //змінює стейт форми
   handleChange(field, e) {
     //змінює стейт active на протилежне

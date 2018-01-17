@@ -2,7 +2,6 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { Link } from 'react-router';
 
-// import { getTasks } from '../../actions/tasks';
 import Menu from '../layouts/menu';
 import TasksList from './tasks_list';
 import TaskForm from './task_form';

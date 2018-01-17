@@ -15,7 +15,7 @@ class Tasks_Edition extends Component {
         title: '',
         description: '',
         priority: '',
-        due_date: new Date(),
+        due_date: ''
       }
     };
   }
