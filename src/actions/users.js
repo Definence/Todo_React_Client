@@ -40,18 +40,3 @@ export function signIn(session){
       })
   }
 }
-
-// export function signOut(){
-//   return function(dispatch, getState) {
-//     // let body = JSON.stringify({ session: session });
-
-//       .then(res => {
-//         localStorage.removeItem('token');
-//         browserHistory.push('#/users/sign_in');
-//         location.reload()
-//       })
-//       .catch(e => {
-//         console.error("error: ", e);
-//       })
-//   }
-// }

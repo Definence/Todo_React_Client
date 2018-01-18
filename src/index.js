@@ -25,7 +25,7 @@ import Sign_in from './components/users/sign_in';
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
 
-if (token) {
+if (token && token.length === 30) {
   ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>

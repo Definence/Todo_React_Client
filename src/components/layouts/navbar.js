@@ -27,7 +27,7 @@ const Navbar = ({ownProps}) => {
   }
 
   //691> норм меню
-  if (token) {
+  if (token && token.length === 30) {
     // user menu
     return (
       <div>
