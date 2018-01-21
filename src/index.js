@@ -20,6 +20,7 @@ import Not_exists from './components/layouts/not_exists';
 import Sign_out from './components/users/sign_out';
 import Sign_up from './components/users/sign_up';
 import Sign_in from './components/users/sign_in';
+import Email_confirmation from './components/users/email_confirmation';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -27,15 +28,16 @@ const history = syncHistoryWithStore(hashHistory, store);
 
 if (token && token.length === 30) {
   ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Tasks_Index} />
-      <Route path="/tasks/:id/edit" component={Tasks_Edition} />
-      <Route path="/tasks/:id/profile" component={Task_Profile} />
-      <Route path="/users/sign_out" component={Sign_out} />
-      <Route path='*' component={Not_exists} />
-    </Router>
-  </Provider>,
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={Tasks_Index} />
+        <Route path="/tasks/:id/edit" component={Tasks_Edition} />
+        <Route path="/tasks/:id/profile" component={Task_Profile} />
+        <Route path="/users/email_confirmation" component={Email_confirmation} />
+        <Route path="/users/sign_out" component={Sign_out} />
+        <Route path='*' component={Not_exists} />
+      </Router>
+    </Provider>,
   document.getElementById('root')
 );
 } else {

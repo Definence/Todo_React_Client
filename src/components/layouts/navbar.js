@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import { token } from '../constants/api_config';
+import { token, username } from '../constants/api_config';
 
 
 const Navbar = ({ownProps}) => {
@@ -46,6 +46,7 @@ const Navbar = ({ownProps}) => {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
                 {link("/", 'Main')}
+                {link("/users/email_confirmation", 'Confirmation')}
               </ul>
 
               <ul className="nav navbar-nav navbar-right">
@@ -53,7 +54,7 @@ const Navbar = ({ownProps}) => {
                 <li className="dropdown">
 
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                    Signed in as: Username
+                    Signed in as: { username }
                     <b className="caret"></b>
                   </a>
 

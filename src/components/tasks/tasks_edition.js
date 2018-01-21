@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { browserHistory } from 'react-router'
 
 import Navbar from '../layouts/navbar';
 import { getTask, editTask } from '../../actions/tasks';
+import Notification from '../layouts/notification';
 
 
 class Tasks_Edition extends Component {
@@ -51,6 +51,8 @@ class Tasks_Edition extends Component {
       <div>
         <Navbar />
 
+        <Notification />
+
         <div className='container'>
           <div className='col-sm-3' />
 
@@ -94,7 +96,6 @@ export default connect(
     },
 
     onEditTask: (task) => {
-      //console.log('Connecting onEditTask: success');
       dispatch(editTask(task));
     }
   })

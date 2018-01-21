@@ -10,8 +10,8 @@ class Sign_in extends React.Component {
     super();
     this.state = {
       session: {
-        email: '1@1',
-        password: '1'
+        email: '',
+        password: ''
       }
     };
   }
@@ -25,7 +25,6 @@ class Sign_in extends React.Component {
   handleSubmit(element) {
     element.preventDefault();
     this.props.onSignIn(this.state.session);
-    //console.log(this.state.session);
   }
 
   render() {
@@ -33,6 +32,7 @@ class Sign_in extends React.Component {
       <div>
 
         <Navbar />
+
 
         <div className='col-sm-3 col-md-4' />
 

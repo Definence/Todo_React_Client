@@ -39,6 +39,7 @@ class Sign_up extends React.Component {
 
         <Navbar />
 
+
         <div className='col-sm-3 col-md-4' />
 
         <div className='col-sm-6 col-md-4' >

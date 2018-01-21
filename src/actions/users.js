@@ -29,11 +29,33 @@ export function signIn(session){
       .then(res => {
         // зберігає дані з бекенду в локалстор
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('username', res.data.username);
+
         browserHistory.push('/');
         location.reload();
         // setTimeout(() => {
         //   location.reload()
         // }, 500)
+      })
+      .catch(e => {
+        console.error("error: ", e);
+      })
+  }
+}
+
+export function emailConfirmation(email_token){
+  return function(dispatch, getState) {
+    axios.get(`${USERS_URL}/${email_token}/email_confirmation`, { headers: HEADERS })
+      .then(res => {
+        console.log(res)
+        if (res.status === 200) {
+
+          // browserHistory.push('#/users/log_in');
+          // setTimeout(() => {
+          //  location.reload()
+          // }, 1500)
+        } else if (res.status === 207) {
+        }
       })
       .catch(e => {
         console.error("error: ", e);

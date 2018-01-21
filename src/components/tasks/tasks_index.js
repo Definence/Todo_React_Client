@@ -1,10 +1,9 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { Link } from 'react-router';
 
 import Navbar from '../layouts/navbar';
 import TasksList from './tasks_list';
 import TaskForm from './task_form';
+import Notification from '../layouts/notification';
 
 
 const Tasks_Index = () => {
@@ -12,6 +11,8 @@ const Tasks_Index = () => {
     <div>
 
       <Navbar />
+
+      <Notification />
 
       <div className="container">
         <div className="row">
