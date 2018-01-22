@@ -21,6 +21,8 @@ const Tasks_Index = () => {
             <TasksList />
           </div>
 
+          <br/>
+
           <div className="col-sm-4">
             <TaskForm />
           </div>

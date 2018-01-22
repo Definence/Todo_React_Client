@@ -11,6 +11,6 @@ export function addNotificationAsync (params) {
 
     setTimeout(() => {
       dispatch({ type: DELETE_NOTIFICATION });
-    }, 3000)
+    }, 2000)
   }
 }
