@@ -3,6 +3,8 @@ import { browserHistory } from 'react-router';
 
 import { TASKS_URL, HEADERS, token } from '../components/constants/api_config';
 import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK, ADD_NOTIFICATION } from '../components/constants/action_types';
+import { addNotificationAsync } from './notifications';
+
 
 
 let headers = Object.assign({}, HEADERS)
@@ -43,7 +45,10 @@ export function addTask(task) {
 
       .then(res => {
         dispatch({ type: ADD_TASK, payload: res.data });
-        dispatch({ type: ADD_NOTIFICATION, payload: { type: "SUCCESS", text: "Your task has been successfully created" } });
+
+        addNotificationAsync({
+          message: 'Task has been successfully created'
+        })(dispatch);
       })
       .catch(error => {
         console.error(error);
@@ -57,7 +62,10 @@ export function deleteTask(id) {
 
       .then(res => {
         dispatch({ type: DELETE_TASK, payload: id });
-        dispatch({ type: ADD_NOTIFICATION, payload: { type: "SUCCESS", text: "Your task has been successfully deleted" } });
+
+        addNotificationAsync({
+          message: 'Task has been successfully deleted'
+        })(dispatch);
       })
       .catch(error => {
         console.error(error);
@@ -70,7 +78,10 @@ export function editTask(task) {
     axios.patch(`${TASKS_URL}/${task.id}`, task, { headers: headers })
 
       .then(res => {
-        dispatch({ type: ADD_NOTIFICATION, payload: { type: "SUCCESS", text: "Your task has been successfully updated" } });
+        addNotificationAsync({
+          message: 'Task has been successfully updated'
+        })(dispatch);
+
         setTimeout(() => {
           browserHistory.push('/');
           location.reload();
@@ -96,7 +107,10 @@ export function completeTask(id, active) {
 
       .then(res => {
         dispatch({ type: COMPLETE_TASK, payload: res.data });
-        dispatch({ type: ADD_NOTIFICATION, payload: { type: "SUCCESS", text: "Your task has been successfully remarked" } });
+
+        addNotificationAsync({
+          message: 'Task has been successfully reassigned'
+        })(dispatch);
       })
       .catch(e => {
         console.error("error: ", e);

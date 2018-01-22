@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Navbar from '../layouts/navbar';
 import { signUp  } from '../../actions/users';
+import Notification from '../layouts/notification';
 
 
 class Sign_up extends React.Component {
@@ -30,7 +31,6 @@ class Sign_up extends React.Component {
   handleSubmit(element) {
     element.preventDefault();
     this.props.onSignUp(this.state.user)
-    //console.log(this.state.user)
   }
 
   render() {
@@ -39,6 +39,7 @@ class Sign_up extends React.Component {
 
         <Navbar />
 
+        <Notification />
 
         <div className='col-sm-3 col-md-4' />
 

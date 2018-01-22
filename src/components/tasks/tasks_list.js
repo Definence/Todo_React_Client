@@ -41,10 +41,10 @@ class TasksList extends Component {
                 <li className="li_height hover1 for_icons">
 
                   <Link to={`/tasks/${task.id}/profile`} className='task_list' >
-                    <div className="col-xs-8" style={{backgroundColor: ''}} >{ task.title }</div>
+                    <div className="col-xs-8">{ task.title }</div>
                   </Link>
 
-                  <div className="col-xs-1" style={{backgroundColor: ''}} >{ task.priority }</div>
+                  <div className="col-xs-1">{ task.priority }</div>
                   <div className="col-xs-3 hover2" >
 
                     <Link to={`/tasks/${task.id}/edit`} >

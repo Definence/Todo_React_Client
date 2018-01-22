@@ -2,6 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { USERS_URL, HEADERS } from '../components/constants/api_config';
+import { addNotificationAsync } from './notifications';
 
 
 export function signUp(user) {
@@ -11,8 +12,14 @@ export function signUp(user) {
     axios.post(`${USERS_URL}/sign_up`, body, { headers: HEADERS })
 
       .then(res => {
-        browserHistory.push('#/users/sign_in');
-        location.reload()
+        addNotificationAsync({
+          message: 'You have been successfully signed up. Please confirm your email'
+        })(dispatch);
+
+        setTimeout(() => {
+          browserHistory.push('#/users/sign_in');
+          location.reload()
+        }, 3000)
       })
       .catch(error => {
         console.error(error);
@@ -33,6 +40,7 @@ export function signIn(session){
 
         browserHistory.push('/');
         location.reload();
+
         // setTimeout(() => {
         //   location.reload()
         // }, 500)
