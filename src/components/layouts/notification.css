@@ -1,4 +1,8 @@
-.notifications-block {
-	background: white;
+/*.notifications-block {
+	background: #f8f8f8;
 	padding: 10px;
+}*/
+
+.notification {
+	text-align: center;
 }

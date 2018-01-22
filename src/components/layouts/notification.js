@@ -11,11 +11,11 @@ const Notification = ({ notification }) => {
   if (notificationsAsync.length > 0) {
     let elementNumber;
     return (
-      <div>
+      <div className='notifications-block container'>
         <ul>
           {
             notificationsAsync.map( (key, index) => {
-              return <li key={ index }>{ key.message }</li>
+              return <li key={ index } className='notification alert alert-success'>{ key.message }</li>
             })
           }
         </ul>

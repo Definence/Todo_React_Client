@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import { token, username } from '../constants/api_config';
+import './navbar.css';
 
 
 const Navbar = ({ownProps}) => {
@@ -13,9 +14,9 @@ const Navbar = ({ownProps}) => {
     //порівнює паз з лінками. активний виділяє
     let if_active = "";
     if (pathname === link_to) {
-      if_active = "active";
+      if_active = "active nav-items-center";
     } else {
-      if_active = "";
+      if_active = "nav-items-center";
     }
 
     //відображає кожен елемент навбару
@@ -33,6 +34,7 @@ const Navbar = ({ownProps}) => {
       <div>
         <nav className="navbar navbar-default" role="navigation">
           <div className="container-fluid">
+
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span className="sr-only">Toggle navigation</span>
@@ -48,30 +50,25 @@ const Navbar = ({ownProps}) => {
                 {link("/", 'Main')}
                 {link("/users/email_confirmation", 'Confirmation')}
               </ul>
-
               <ul className="nav navbar-nav navbar-right">
-
                 <li className="dropdown">
-
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <a href="#" className="dropdown-toggle nav-items-center" data-toggle="dropdown">
                     Signed in as: { username }
                     <b className="caret"></b>
                   </a>
-
                   <ul className="dropdown-menu">
                     {link("/users/sign_out", 'Sign out')}
                   </ul>
-
                 </li>
-
               </ul>
-
             </div>
+
           </div>
         </nav>
 
       </div>
     );
+
   } else {
     // guest menu
     return (
@@ -79,6 +76,7 @@ const Navbar = ({ownProps}) => {
 
         <nav className="navbar navbar-default" role="navigation">
           <div className="container-fluid">
+
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span className="sr-only">Toggle navigation</span>
@@ -100,6 +98,7 @@ const Navbar = ({ownProps}) => {
               </ul>
 
             </div>
+
           </div>
         </nav>
 
@@ -115,40 +114,3 @@ export default connect(
     ownProps
   })
 )(Navbar);
-
-
-
-//old menu
-// <nav className="navbar navbar-default" role="navigation">
-
-//   <div className="container-fluid">
-
-//     <div className="navbar-header">
-//       <a className="navbar-brand" href="#">TODO</a>
-//     </div>
-
-//     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-//       <ul className="nav navbar-nav">
-//         {li("/", 'Main')}
-//         {li("/users/log_in", 'Log in')}
-//         {li("/users/sign_up", 'Sign up')}
-//       </ul>
-
-//       <ul className="nav navbar-nav navbar-right">
-
-//         <li className="dropdown">
-//           <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-//             Signed in as: username
-//             <b className="caret"></b>
-//           </a>
-//           <ul className="dropdown-menu">
-//             {li("/users/sign_out", 'Sign out')}
-//           </ul>
-//         </li>
-
-//       </ul>
-
-//     </div>
-//   </div>
-// </nav>
