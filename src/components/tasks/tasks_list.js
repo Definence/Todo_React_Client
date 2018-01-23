@@ -6,18 +6,35 @@ import {
   getTasks,
   deleteTask,
   completeTask,
+  sortTasksBy
 } from '../../actions/tasks';
 
 
 class TasksList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      tasks: []
+    }
+  }
 
+  //перевіряє чи зі стор  прийшли в пропси
   static contextTypes = {
     store: React.PropTypes.object
   };
 
   componentDidMount () {
-    this.context.store.dispatch(getTasks());
+    this.context.store.dispatch(getTasks())
+      .then(response => {
+        this.setState({tasks: response.data});
+      })
   }
+
+  // //замінили на componentDidMount(аналогія в tasks_edition)
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({tasks: nextProps.tasks});
+  //   console.log(nextProps.tasks)
+  // }
 
   handleComplete (id, active) {
     this.props.onCompleteTask(id, active);
@@ -27,9 +44,49 @@ class TasksList extends Component {
     this.props.onDestroyTask(id);
   }
 
+  sortTasks (type) {
+    if (type === 'title') {
+      var tasks = this.state.tasks.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        // a должно быть равным b
+        return 0;
+      });
+
+    } else {
+      var tasks = this.state.tasks.sort(function (a, b) {
+        if (a.priority > b.priority) {
+          return 1;
+        }
+        if (a.priority < b.priority) {
+          return -1;
+        }
+        // a должно быть равным b
+        return 0;
+      });
+    }
+    this.setState({tasks: tasks});
+  }
+
   render() {
     return (
       <div>
+
+        <div>
+          <div className="btn btn-info" onClick={this.sortTasks.bind(this, 'title')}>
+            Sort by asc
+          </div>
+
+          <div className="btn btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
+            Sort by priority
+          </div>
+        </div>
+
+        <br/>
 
         <h3> Current tasks: </h3>
         {this.props.tasks.map( (task) => {
@@ -107,11 +164,14 @@ export default connect(
     tasks: state.tasks.items
   }),
   dispatch => ({
+
     onDestroyTask: (id) => {
       dispatch(deleteTask(id));
     },
+
     onCompleteTask: (id, active) => {
       dispatch(completeTask(id, active));
     },
+
   })
 )(TasksList);

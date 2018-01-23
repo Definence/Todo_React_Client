@@ -2,8 +2,8 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { TASKS_URL, HEADERS, token } from '../components/constants/api_config';
-import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK, ADD_NOTIFICATION } from '../components/constants/action_types';
-import { addNotificationAsync } from './notifications';
+import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK } from '../components/constants/action_types';
+import { addNotificationAsync } from '../components/middlewares/notifications';
 
 
 
@@ -13,29 +13,37 @@ let headers = Object.assign({}, HEADERS)
 
 export function getTasks() {
   return function(dispatch, getState) {
-    axios.get(TASKS_URL, { headers: headers })
+    return new Promise((resolve, reject) => {
 
-      .then(res => {
-        if (res.status === 200) {
-          dispatch({ type: GET_TASKS, payload: res.data });
-        }
-      })
-      .catch(e => {
-        console.error("error: ", e);
-      })
+      axios.get(TASKS_URL, { headers: headers })
+
+        .then(res => {
+          if (res.status === 200) {
+            dispatch({ type: GET_TASKS, payload: res.data });
+            resolve(res)
+          }
+        })
+        .catch(e => {
+          console.error("error: ", e);
+          reject(e)
+        })
+    })
   }
 }
 
 export function getTask(id) {
   return function(dispatch, getState) {
-    axios.get(`${TASKS_URL}/${id}`, { headers: headers })
-
-      .then(res => {
-        dispatch({ type: GET_TASK_ID, payload: res.data });
-      })
-      .catch(e => {
-        console.error("error: ", e);
-      })
+    return new Promise((resolve, reject) => {
+      axios.get(`${TASKS_URL}/${id}`, { headers: headers })
+        .then(res => {
+            resolve(res)
+          dispatch({ type: GET_TASK_ID, payload: res.data });
+        })
+        .catch(e => {
+          console.error("error: ", e);
+          reject(e)
+        })
+    })
   }
 }
 
@@ -63,6 +71,7 @@ export function deleteTask(id) {
       .then(res => {
         dispatch({ type: DELETE_TASK, payload: id });
 
+        //middleware
         addNotificationAsync({
           message: 'Task has been successfully deleted'
         })(dispatch);

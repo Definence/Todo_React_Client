@@ -4,9 +4,7 @@ import {
 } from '../components/constants/action_types';
 
 
-export default function notifications(state={
-	notificationsAsync: []
-}, action) {
+export default function notifications(state = { notificationsAsync: [] }, action) {
   switch (action.type) {
     case ADD_NOTIFICATION:
     	const { message } = action;

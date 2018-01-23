@@ -9,13 +9,12 @@ const Notification = ({ notification }) => {
   const { notificationsAsync } = notification
 
   if (notificationsAsync.length > 0) {
-    let elementNumber;
     return (
       <div className='notifications-block container'>
         <ul>
           {
             notificationsAsync.map( (key, index) => {
-              return <li key={ index } className='notification alert alert-success'>{ key.message }</li>
+              return <li key={ index } className='notification alert alert-info'>{ key.message }</li>
             })
           }
         </ul>
@@ -24,26 +23,6 @@ const Notification = ({ notification }) => {
   }
 
   return null;
-
-  // if (notification) {
-    //костиль з пропаданням алерту
-    // setTimeout(() => {
-    //   let Temp = document.getElementById("disappearing")
-    //     if (Temp != null)
-    //       Temp.style.display = "none";
-    // }, 3000)
-
-  //   return (
-  //     <div id='disappearing'>
-  //       <div className='notifications-block'>
-  //         {notification.type}: {notification.text}
-  //       </div>
-  //     </div>
-  //   );
-  //  }
-
-  // return null;
-  // return <div className='notifications-block'>ELse</div>
 
 }
 

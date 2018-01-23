@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { USERS_URL, HEADERS } from '../components/constants/api_config';
-import { addNotificationAsync } from './notifications';
+import { addNotificationAsync } from '../components/middlewares/notifications';
 
 
 export function signUp(user) {

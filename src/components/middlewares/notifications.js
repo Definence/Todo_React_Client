@@ -1,4 +1,4 @@
-import { ADD_NOTIFICATION, DELETE_NOTIFICATION } from '../components/constants/action_types';
+import { ADD_NOTIFICATION, DELETE_NOTIFICATION } from '../constants/action_types';
 
 
 export function addNotificationAsync (params) {
@@ -11,6 +11,6 @@ export function addNotificationAsync (params) {
 
     setTimeout(() => {
       dispatch({ type: DELETE_NOTIFICATION });
-    }, 2000)
+    }, 3000)
   }
 }

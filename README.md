@@ -94,6 +94,11 @@ devtools extension
 >		npm install react-cookies --save
 
 
+react promise
+
+>		npm i react-promise
+
+
 ------------------------------------------------------------------------------------------------------------------------------
 
 				Терміни:
