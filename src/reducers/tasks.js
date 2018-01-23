@@ -3,8 +3,10 @@ import {
   GET_TASK_ID,
   ADD_TASK,
   DELETE_TASK,
-  COMPLETE_TASK
+  COMPLETE_TASK,
+  SORT_TASKS
 } from '../components/constants/action_types';
+
 
 let initState = {
   items: [],
@@ -49,9 +51,11 @@ export default function tasks(state = initState, action) {
         items: [ action.payload, ...state.items ]
       };
 
-    // case SORT_TASKS:
-    //   console.log(action.payload)
-    //   return state
+    case SORT_TASKS:
+      return {
+        ...state,
+        items: action.payload
+      };
 
     default:
       return state;

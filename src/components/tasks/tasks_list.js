@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import { sortTasks } from '../middlewares/sorted_tasks';
 import {
   getTasks,
   deleteTask,
-  completeTask,
-  sortTasksBy
+  completeTask
 } from '../../actions/tasks';
 
 
@@ -46,7 +46,7 @@ class TasksList extends Component {
 
   sortTasks (type) {
     if (type === 'title') {
-      var tasks = this.state.tasks.sort(function (a, b) {
+      var tasks = this.props.tasks.sort(function (a, b) {
         if (a.title > b.title) {
           return 1;
         }
@@ -58,7 +58,7 @@ class TasksList extends Component {
       });
 
     } else {
-      var tasks = this.state.tasks.sort(function (a, b) {
+      var tasks = this.props.tasks.sort(function (a, b) {
         if (a.priority > b.priority) {
           return 1;
         }
@@ -69,7 +69,9 @@ class TasksList extends Component {
         return 0;
       });
     }
+
     this.setState({tasks: tasks});
+    this.props.onSortTasks(tasks);
   }
 
   render() {
@@ -172,6 +174,10 @@ export default connect(
     onCompleteTask: (id, active) => {
       dispatch(completeTask(id, active));
     },
+
+    onSortTasks: (tasks) => {
+      dispatch(sortTasks(tasks));
+    }
 
   })
 )(TasksList);
