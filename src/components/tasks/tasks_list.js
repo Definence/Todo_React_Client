@@ -27,6 +27,7 @@ class TasksList extends Component {
     this.context.store.dispatch(getTasks())
       .then(response => {
         this.setState({tasks: response.data});
+        console.log(this.state.tasks)
       })
   }
 
@@ -86,22 +87,29 @@ class TasksList extends Component {
     return (
       <div>
         <div className='row'>
-          <div className='col-xs-3'>
-            <div onClick={ () => this.handleCheckAll(true) } className="glyphicon glyphicon-check btn-group btn" />
-            <div onClick={ () => this.handleCheckAll(false) } className="glyphicon glyphicon-unchecked btn-group btn" />
-          </div>
-          <div className='col-sm-9'>
-            <div className='btn-group btn'>
+
+          <div>
+
+            <div className="glyphicon glyphicon-check btn-group btn" />
+
+            <div className='btn-group btn pull-right'>
+              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
+                Sort by priority
+              </div>
+            </div>
+
+            <div className='btn-group btn pull-right'>
               <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'title')}>
                 Sort by asc
               </div>
             </div>
 
-            <div className='btn-group btn'>
-              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
-                Sort by priority
+            <div className='btn-group btn pull-right'>
+              <div className="btn btn-group btn-danger">
+                Delete all
               </div>
             </div>
+
           </div>
         </div>
 

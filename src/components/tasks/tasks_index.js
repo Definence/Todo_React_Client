@@ -12,9 +12,9 @@ const Tasks_Index = () => {
 
       <Navbar />
 
-      <Notification />
+      <div className="container">
 
-      <div className="container-fluid">
+        <Notification />
 
         <div className="col-sm-8">
           <TasksList />
