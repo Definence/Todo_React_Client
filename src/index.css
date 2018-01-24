@@ -6,11 +6,18 @@ html {  font-size: 14px;}
 body { margin: 0;  padding: 0;  font-family: sans-serif; }
 li { list-style-type: none; }
 
+.priority {position: relative; left: 55px }
+.icons-block {position: relative; left: 50px }
+
 .hover1:hover .hover2 { display: table; }
 .hover2 { display: none;}
-.for_icons span { cursor: pointer; margin-left: 5px }
+.for_icons span { cursor: pointer; margin-left: 3px }
+.li_height {
+	/*padding: 10px;*/
+	/*margin-top: 5px;*/
+	height: 40px;
+}
 
-.li_height {padding: 10px; margin-top: 5px; height: 40px; }
 
 .text_decoration_line_through {text-decoration: line-through}
 

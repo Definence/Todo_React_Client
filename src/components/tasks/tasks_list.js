@@ -44,6 +44,14 @@ class TasksList extends Component {
     this.props.onDestroyTask(id);
   }
 
+  handleCheckAll (boolean) {
+    if (boolean) {
+      return null;
+    } else {
+      return null;
+    }
+  }
+
   sortTasks (type) {
     if (type === 'title') {
       var tasks = this.props.tasks.sort(function (a, b) {
@@ -77,34 +85,45 @@ class TasksList extends Component {
   render() {
     return (
       <div>
-
-        <div>
-          <div className="btn btn-info" onClick={this.sortTasks.bind(this, 'title')}>
-            Sort by asc
+        <div className='row'>
+          <div className='col-xs-3'>
+            <div onClick={ () => this.handleCheckAll(true) } className="glyphicon glyphicon-check btn-group btn" />
+            <div onClick={ () => this.handleCheckAll(false) } className="glyphicon glyphicon-unchecked btn-group btn" />
           </div>
+          <div className='col-sm-9'>
+            <div className='btn-group btn'>
+              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'title')}>
+                Sort by asc
+              </div>
+            </div>
 
-          <div className="btn btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
-            Sort by priority
+            <div className='btn-group btn'>
+              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
+                Sort by priority
+              </div>
+            </div>
           </div>
         </div>
-
-        <br/>
 
         <h3> Current tasks: </h3>
         {this.props.tasks.map( (task) => {
           if (!task.active) {
 
             return (
-              <div key={task.id}>
-              <br />
-                <li className="li_height hover1 for_icons">
+              <div key={task.id} className='container-fluid'>
+
+                <div className='col-xs-1'>
+                  <input type='checkbox' />
+                </div>
+
+                <div className="li_height hover1 for_icons">
 
                   <Link to={`/tasks/${task.id}/profile`} className='task_list' >
-                    <div className="col-xs-8">{ task.title }</div>
+                    <div className="col-xs-7">{ task.title }</div>
                   </Link>
 
-                  <div className="col-xs-1">{ task.priority }</div>
-                  <div className="col-xs-3 hover2" >
+                  <div className="col-xs-1 priority">{ task.priority }</div>
+                  <div className="col-xs-3 hover2 icons-block" >
 
                     <Link to={`/tasks/${task.id}/edit`} >
                       <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
@@ -115,7 +134,7 @@ class TasksList extends Component {
                     <span onClick={this.handleComplete.bind(this, task.id, task.active)} className="glyphicon glyphicon-ok" title="Mark as completed"></span>
 
                   </div>
-                </li>
+                </div>
               </div>
             );
 
@@ -123,20 +142,25 @@ class TasksList extends Component {
         })}
 
         <h3> Completed tasks: </h3>
+
         {this.props.tasks.map( (task) => {
           if (task.active) {
 
             return (
-              <div key={task.id}>
-              <br />
-                <li className="li_height hover1 for_icons">
+              <div key={task.id} className='container-fluid'>
+
+                <div className='col-xs-1'>
+                  <input type='checkbox' />
+                </div>
+
+                <div className="li_height hover1 for_icons">
 
                   <Link to={`/tasks/${task.id}/profile`} className='task_list' >
-                    <div className="col-xs-8" style={{backgroundColor: ''}} >{ task.title }</div>
+                    <div className="col-xs-7">{ task.title }</div>
                   </Link>
 
-                  <div className="col-xs-1" style={{backgroundColor: ''}} >{ task.priority }</div>
-                  <div className="col-xs-3 hover2" >
+                  <div className="col-xs-1 priority">{ task.priority }</div>
+                  <div className="col-xs-3 hover2 icons-block">
 
                     <Link to={`/tasks/${task.id}/edit`} >
                       <span className="glyphicon glyphicon-pencil" title="Edit task"></span>
@@ -147,7 +171,7 @@ class TasksList extends Component {
                     <span onClick={this.handleComplete.bind(this, task.id, task.active)} className="glyphicon glyphicon-remove" title="Mark as uncompleted"></span>
 
                   </div>
-                </li>
+                </div>
               </div>
             );
 

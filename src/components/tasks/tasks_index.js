@@ -14,20 +14,16 @@ const Tasks_Index = () => {
 
       <Notification />
 
-      <div className="container">
-        <div className="row">
+      <div className="container-fluid">
 
-          <div className="col-sm-8">
-            <TasksList />
-          </div>
-
-          <br/>
-
-          <div className="col-sm-4">
-            <TaskForm />
-          </div>
-
+        <div className="col-sm-8">
+          <TasksList />
         </div>
+
+        <div className="col-sm-4">
+          <TaskForm />
+        </div>
+
       </div>
 
     </div>
