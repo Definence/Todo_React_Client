@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { TASKS_URL, HEADERS, token } from '../components/constants/api_config';
-import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK } from '../components/constants/action_types';
+import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK, DELETE_TASKS } from '../components/constants/action_types';
 import { addNotificationAsync } from '../components/middlewares/notifications';
 
 
@@ -13,21 +13,16 @@ let headers = Object.assign({}, HEADERS)
 
 export function getTasks() {
   return function(dispatch, getState) {
-    return new Promise((resolve, reject) => {
+    axios.get(TASKS_URL, { headers: headers })
 
-      axios.get(TASKS_URL, { headers: headers })
-
-        .then(res => {
-          if (res.status === 200) {
-            dispatch({ type: GET_TASKS, payload: res.data });
-            resolve(res)
-          }
-        })
-        .catch(e => {
-          console.error("error: ", e);
-          reject(e)
-        })
-    })
+      .then(res => {
+        if (res.status === 200) {
+          dispatch({ type: GET_TASKS, payload: res.data });
+        }
+      })
+      .catch(e => {
+        console.error("error: ", e);
+      })
   }
 }
 
@@ -104,6 +99,7 @@ export function editTask(task) {
 
 export function completeTask(id, active) {
   return function(dispatch, getState) {
+
     if (active === true) {
       active = false
     } else {
@@ -123,6 +119,23 @@ export function completeTask(id, active) {
       })
       .catch(e => {
         console.error("error: ", e);
+      })
+  }
+}
+
+export function destroyCheckedTasks(ids) {
+  return function(dispatch, getState) {
+    axios.post(`${TASKS_URL}/batch_destroy`, {ids: ids}, { headers: headers } )
+
+      .then(res => {
+        dispatch({ type: DELETE_TASKS, payload: ids });
+
+        addNotificationAsync({
+          message: 'Tasks has been successfully deleted'
+        })(dispatch);
+      })
+      .catch(error => {
+        console.error(error);
       })
   }
 }

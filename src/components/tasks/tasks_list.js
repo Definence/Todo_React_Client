@@ -6,15 +6,17 @@ import { sortTasks } from '../middlewares/sorted_tasks';
 import {
   getTasks,
   deleteTask,
-  completeTask
+  completeTask,
+  destroyCheckedTasks
 } from '../../actions/tasks';
 
 
 class TasksList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      tasks: []
+      tasks: [],
+      checked: []
     }
   }
 
@@ -25,17 +27,12 @@ class TasksList extends Component {
 
   componentDidMount () {
     this.context.store.dispatch(getTasks())
-      .then(response => {
-        this.setState({tasks: response.data});
-        console.log(this.state.tasks)
-      })
   }
 
   // //замінили на componentDidMount(аналогія в tasks_edition)
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({tasks: nextProps.tasks});
-  //   console.log(nextProps.tasks)
-  // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ tasks: nextProps.tasks });
+  }
 
   handleComplete (id, active) {
     this.props.onCompleteTask(id, active);
@@ -43,14 +40,6 @@ class TasksList extends Component {
 
   handleDestroy (id) {
     this.props.onDestroyTask(id);
-  }
-
-  handleCheckAll (boolean) {
-    if (boolean) {
-      return null;
-    } else {
-      return null;
-    }
   }
 
   sortTasks (type) {
@@ -79,8 +68,24 @@ class TasksList extends Component {
       });
     }
 
-    this.setState({tasks: tasks});
-    this.props.onSortTasks(tasks);
+    this.setState({ tasks: tasks });
+    // this.props.onSortTasks(tasks);
+  }
+
+  handleCheck (id) {
+    let searchResult = this.state.checked.indexOf(id);
+    if (searchResult != -1) {
+      //удалить ід з масива чекд (починаючи з індекс, к-сть ел)
+      this.state.checked.splice(searchResult, 1);
+    } else {
+      this.state.checked.push(id);
+    }
+  }
+
+  handleDeleteChecked () {
+    if (this.state.checked.length > 0) {
+      this.props.onDestroyCheckedTasks(this.state.checked);
+    }
   }
 
   render() {
@@ -105,8 +110,8 @@ class TasksList extends Component {
             </div>
 
             <div className='btn-group btn pull-right'>
-              <div className="btn btn-group btn-danger">
-                Delete all
+              <div className="btn btn-group btn-danger"onClick={ this.handleDeleteChecked.bind(this) } >
+                Delete checked
               </div>
             </div>
 
@@ -114,6 +119,7 @@ class TasksList extends Component {
         </div>
 
         <h3> Current tasks: </h3>
+
         {this.props.tasks.map( (task) => {
           if (!task.active) {
 
@@ -121,9 +127,8 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' />
+                  <input type='checkbox' onClick= {this.handleCheck.bind(this, task.id)} />
                 </div>
-
                 <div className="li_height hover1 for_icons">
 
                   <Link to={`/tasks/${task.id}/profile`} className='task_list' >
@@ -158,7 +163,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' />
+                  <input type='checkbox' onClick={ this.handleCheck.bind(this, task.id) } />
                 </div>
 
                 <div className="li_height hover1 for_icons">
@@ -207,9 +212,12 @@ export default connect(
       dispatch(completeTask(id, active));
     },
 
-    onSortTasks: (tasks) => {
-      dispatch(sortTasks(tasks));
-    }
+    // onSortTasks: (tasks) => {
+    //   dispatch(sortTasks(tasks));
+    // },
 
+    onDestroyCheckedTasks: (ids) => {
+      dispatch(destroyCheckedTasks(ids));
+    }
   })
 )(TasksList);

@@ -4,7 +4,8 @@ import {
   ADD_TASK,
   DELETE_TASK,
   COMPLETE_TASK,
-  SORT_TASKS
+  SORT_TASKS,
+  DELETE_TASKS
 } from '../components/constants/action_types';
 
 
@@ -51,10 +52,19 @@ export default function tasks(state = initState, action) {
         items: [ action.payload, ...state.items ]
       };
 
-    case SORT_TASKS:
+    // case SORT_TASKS:
+    //   return {
+    //     ...state,
+    //     items: action.payload
+    //   };
+
+    case DELETE_TASKS:
+      for (let taskNumber = 0; taskNumber < action.payload.length; taskNumber ++) {
+        state.items = state.items.filter(el => el.id !== action.payload[taskNumber])
+      }
       return {
         ...state,
-        items: action.payload
+        items: state.items
       };
 
     default:
