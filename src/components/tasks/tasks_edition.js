@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../layouts/navbar';
-import { getTasks, getTask, editTask } from '../../actions/tasks';
+import {
+  getTask,
+  editTask
+} from '../../actions/tasks';
 import Notification from '../layouts/notification';
 
 

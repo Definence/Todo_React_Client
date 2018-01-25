@@ -4,7 +4,7 @@ import {
   ADD_TASK,
   DELETE_TASK,
   COMPLETE_TASK,
-  SORT_TASKS,
+  // SORT_TASKS,
   DELETE_TASKS
 } from '../components/constants/action_types';
 

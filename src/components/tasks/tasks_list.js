@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { sortTasks } from '../middlewares/sorted_tasks';
+// import { sortTasks } from '../middlewares/sorted_tasks';
 import {
   getTasks,
   deleteTask,
@@ -44,7 +44,7 @@ class TasksList extends Component {
 
   sortTasks (type) {
     if (type === 'title') {
-      var tasks = this.props.tasks.sort(function (a, b) {
+      let sortedTasks = this.props.tasks.sort(function (a, b) {
         if (a.title > b.title) {
           return 1;
         }
@@ -54,9 +54,11 @@ class TasksList extends Component {
         // a должно быть равным b
         return 0;
       });
+      this.setState({ tasks: sortedTasks });
+      // this.props.onSortTasks(tasks);
 
     } else {
-      var tasks = this.props.tasks.sort(function (a, b) {
+      let sortedTasks = this.props.tasks.sort(function (a, b) {
         if (a.priority > b.priority) {
           return 1;
         }
@@ -66,15 +68,14 @@ class TasksList extends Component {
         // a должно быть равным b
         return 0;
       });
+      this.setState({ tasks: sortedTasks });
+      // this.props.onSortTasks(tasks);
     }
-
-    this.setState({ tasks: tasks });
-    // this.props.onSortTasks(tasks);
   }
 
   handleCheck (id) {
     let searchResult = this.state.checked.indexOf(id);
-    if (searchResult != -1) {
+    if (searchResult !== -1) {
       //удалить ід з масива чекд (починаючи з індекс, к-сть ел)
       this.state.checked.splice(searchResult, 1);
     } else {
@@ -127,7 +128,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' onClick= {this.handleCheck.bind(this, task.id)} />
+                  <input type='checkbox' onClick={this.handleCheck.bind(this, task.id)} />
                 </div>
                 <div className="li_height hover1 for_icons">
 
