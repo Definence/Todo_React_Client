@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../layouts/navbar';
-import { signIn  } from '../../actions/users';
+import { signIn  } from '../../actions/sessions';
+import Notification from '../layouts/notification';
 
 
 class Sign_in extends React.Component {
@@ -33,6 +34,7 @@ class Sign_in extends React.Component {
 
         <Navbar />
 
+        <Notification />
 
         <div className='col-sm-3 col-md-4' />
 
