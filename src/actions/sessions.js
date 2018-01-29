@@ -15,12 +15,14 @@ export function signIn(session){
           addNotificationAsync({
             message: 'Your account is not activated. Please confirm your email!'
           })(dispatch);
+
         } else if (res.status === 200) {
           // зберігає дані з бекенду в локалстор
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('username', res.data.username);
           browserHistory.push('/');
           location.reload();
+
         } else if (res.status === 204) {
           addNotificationAsync({
             message: 'User does not exists!'

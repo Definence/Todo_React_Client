@@ -19,26 +19,40 @@ export function signUp(user) {
           browserHistory.push('#/users/sign_in');
           location.reload()
         }, 3500)
+
       })
       .catch(error => {
         console.error(error);
+
+        addNotificationAsync({
+          message: 'Something went wrong :('
+        })(dispatch);
       })
   }
 }
 
-export function emailConfirmation(email_token){
+export function emailConfirmation(token) {
   return function(dispatch, getState) {
-    axios.get(`${USERS_URL}/${email_token}/email_confirmation`, { headers: HEADERS })
+    let body = {user: token};
+    axios.post(`${USERS_URL}/email_confirmation`, body, { headers: HEADERS })
 
       .then(res => {
-        console.log(res)
         if (res.status === 200) {
-          // browserHistory.push('#/users/log_in');
-          // setTimeout(() => {
-          //  location.reload()
-          // }, 1500)
-        } else if (res.status === 207) {
+          addNotificationAsync({
+            message: 'You have confirmed your email'
+          })(dispatch);
+
+          setTimeout(() => {
+            browserHistory.push('#/users/sign_in');
+            location.reload()
+          }, 3000)
+
+        } else {
+          addNotificationAsync({
+            message: 'Something went wrong :('
+          })(dispatch);
         }
+
       })
       .catch(e => {
         console.error("error: ", e);

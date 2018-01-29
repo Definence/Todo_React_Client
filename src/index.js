@@ -33,9 +33,9 @@ if (token && token.length === 30) {
         <Route path="/" component={Tasks_Index} />
         <Route path="/tasks/:id/edit" component={Tasks_Edition} />
         <Route path="/tasks/:id/profile" component={Task_Profile} />
-        <Route path="/users/email_confirmation" component={Email_confirmation} />
         <Route path="/users/sign_out" component={Sign_out} />
         <Route path='*' component={Not_exists} />
+        <Route path="/users/email_confirmation" component={Email_confirmation} />
       </Router>
     </Provider>,
   document.getElementById('root')
@@ -46,6 +46,7 @@ if (token && token.length === 30) {
       <Router history={history}>
         <Route path="/users/sign_in" component={Sign_in} />
         <Route path="/users/sign_up" component={Sign_up} />
+        <Route path="/users/email_confirmation" component={Email_confirmation} />
         <Route path='*' component={Sign_in} />
       </Router>
     </Provider>,

@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import Navbar from '../layouts/navbar';
 import { emailConfirmation } from '../../actions/users';
 import { token } from '../constants/api_config';
+import Notification from '../layouts/notification';
 
 
 class Email_Confirmation extends Component {
 
-  componentDidMount() {
-    console.log(token);
-    // var email_token = this.props.ownProps.routing.locationBeforeTransitions.query.email_token
-    // this.props.onEmailConfirmation(email_token);
+  componentWillMount() {
+    // console.log(this.props.location.query.email_token)
+    let token = this.props.location.query.email_token;
+    this.props.onEmailConfirmation(token);
   }
 
   render() {
@@ -20,6 +21,7 @@ class Email_Confirmation extends Component {
 
         <Navbar />
 
+        <Notification />
 
       </div>
     );
@@ -31,8 +33,8 @@ export default connect(
     ownProps
   }),
   dispatch => ({
-    onEmailConfirmation: (email_token) => {
-      dispatch(emailConfirmation(email_token));
+    onEmailConfirmation: (token) => {
+      dispatch(emailConfirmation(token));
     }
   })
 )(Email_Confirmation);

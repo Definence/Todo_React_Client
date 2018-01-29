@@ -5,11 +5,8 @@ import { TASKS_URL, HEADERS, token } from '../components/constants/api_config';
 import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK, DELETE_TASKS } from '../components/constants/action_types';
 import { addNotificationAsync } from '../components/middlewares/notifications';
 
-
-
 let headers = Object.assign({}, HEADERS)
   headers['Authorization'] = token
-
 
 export function getTasks() {
   return function(dispatch, getState) {
@@ -31,7 +28,7 @@ export function getTask(id) {
     return new Promise((resolve, reject) => {
       axios.get(`${TASKS_URL}/${id}`, { headers: headers })
         .then(res => {
-            resolve(res)
+          resolve(res)
           dispatch({ type: GET_TASK_ID, payload: res.data });
         })
         .catch(e => {
@@ -99,7 +96,6 @@ export function editTask(task) {
 
 export function completeTask(id, active) {
   return function(dispatch, getState) {
-
     if (active === true) {
       active = false
     } else {
