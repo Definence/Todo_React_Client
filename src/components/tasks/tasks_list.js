@@ -74,6 +74,7 @@ class TasksList extends Component {
   }
 
   handleCheck (id) {
+    console.log('handleCheck')
     let searchResult = this.state.checked.indexOf(id);
     if (searchResult !== -1) {
       //удалить ід з масива чекд (починаючи з індекс, к-сть ел)
@@ -81,6 +82,8 @@ class TasksList extends Component {
     } else {
       this.state.checked.push(id);
     }
+
+    this.setState({ checked: this.state.checked });
   }
 
   handleDeleteChecked () {
@@ -89,14 +92,36 @@ class TasksList extends Component {
     }
   }
 
+  handleCheckAll (boolean) {
+    if (boolean) {
+      let fakeState = [];
+      for (var i = 0; i < this.props.tasks.length; i++) {
+        fakeState.push(this.props.tasks[i].id)
+      }
+      this.setState({ checked: fakeState });
+    } else
+      this.setState({ checked: [] });
+  }
+
+  checkboxRendering(id) {
+    let searchResult = this.state.checked.indexOf(id);
+    if (searchResult === -1) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   render() {
+    console.log(this.state.checked);
     return (
       <div>
         <div className='row'>
 
           <div>
 
-            <div className="glyphicon glyphicon-check btn-group btn" />
+            <div className="glyphicon glyphicon-check btn-group btn" onClick={this.handleCheckAll.bind(this, true)} />
+            <div className="glyphicon glyphicon-minus btn-group btn" onClick={this.handleCheckAll.bind(this, false)} />
 
             <div className='btn-group btn pull-right'>
               <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
@@ -128,7 +153,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' onClick={this.handleCheck.bind(this, task.id)} />
+                  <input type='checkbox' onChange={this.handleCheck.bind(this, task.id)} checked={this.checkboxRendering(task.id)}  /*checked={this.state.checkedAllStatus}*/ />
                 </div>
                 <div className="li_height hover1 for_icons">
 
@@ -156,7 +181,6 @@ class TasksList extends Component {
         })}
 
         <h3> Completed tasks: </h3>
-
         {this.props.tasks.map( (task) => {
           if (task.active) {
 
@@ -164,7 +188,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' onClick={ this.handleCheck.bind(this, task.id) } />
+                  <input type='checkbox' onClick={ this.handleCheck.bind(this, task.id) } checked={this.state.checkedAllStatus} />
                 </div>
 
                 <div className="li_height hover1 for_icons">
