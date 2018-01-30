@@ -128,30 +128,25 @@ class TasksList extends Component {
   render () {
     return (
       <div>
-        <div className='row'>
+        <div className='container-fluid'>
+          <div className={`glyphicon btn-group btn ${this.checkboxIcon()}`} onClick={this.handleCheckAll.bind(this)} />
 
-          <div>
-
-            <div className={`glyphicon btn-group btn ${this.checkboxIcon()}`} onClick={this.handleCheckAll.bind(this)} />
-
-            <div className='btn-group btn pull-right'>
-              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
-                Sort by priority
-              </div>
+          <div className='btn-group btn pull-right'>
+            <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
+              Sort by priority
             </div>
+          </div>
 
-            <div className='btn-group btn pull-right'>
-              <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'title')}>
-                Sort by asc
-              </div>
+          <div className='btn-group btn pull-right'>
+            <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'title')}>
+              Sort by asc
             </div>
+          </div>
 
-            <div className='btn-group btn pull-right'>
-              <div className="btn btn-group btn-danger"onClick={ this.handleDeleteChecked.bind(this) } >
-                Delete checked
-              </div>
+          <div className='btn-group btn pull-right'>
+            <div className="btn btn-group btn-danger"onClick={ this.handleDeleteChecked.bind(this) } >
+              Delete checked
             </div>
-
           </div>
         </div>
 
