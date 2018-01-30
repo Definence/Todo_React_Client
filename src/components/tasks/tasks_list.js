@@ -26,7 +26,8 @@ class TasksList extends Component {
   };
 
   componentDidMount () {
-    this.context.store.dispatch(getTasks())
+    console.log(this.checkboxIcon());
+    this.context.store.dispatch(getTasks());
   }
 
   // //замінили на componentDidMount(аналогія в tasks_edition)
@@ -74,7 +75,6 @@ class TasksList extends Component {
   }
 
   handleCheck (id) {
-    console.log('handleCheck')
     let searchResult = this.state.checked.indexOf(id);
     if (searchResult !== -1) {
       //удалить ід з масива чекд (починаючи з індекс, к-сть ел)
@@ -92,18 +92,19 @@ class TasksList extends Component {
     }
   }
 
-  handleCheckAll (boolean) {
-    if (boolean) {
+  handleCheckAll () {
+    if (this.props.tasks.length === this.state.checked.length) {
+      this.setState({ checked: [] });
+    } else {
       let fakeState = [];
       for (var i = 0; i < this.props.tasks.length; i++) {
         fakeState.push(this.props.tasks[i].id)
       }
       this.setState({ checked: fakeState });
-    } else
-      this.setState({ checked: [] });
+    }
   }
 
-  checkboxRendering(id) {
+  checkboxRendering (id) {
     let searchResult = this.state.checked.indexOf(id);
     if (searchResult === -1) {
       return false
@@ -112,16 +113,26 @@ class TasksList extends Component {
     }
   }
 
-  render() {
-    console.log(this.state.checked);
+  checkboxIcon () {
+    if (this.props.tasks.length === this.state.checked.length) {
+      return (
+        'glyphicon-unchecked'
+      );
+    } else {
+      return (
+        'glyphicon-check'
+      );
+    }
+  }
+
+  render () {
     return (
       <div>
         <div className='row'>
 
           <div>
 
-            <div className="glyphicon glyphicon-check btn-group btn" onClick={this.handleCheckAll.bind(this, true)} />
-            <div className="glyphicon glyphicon-minus btn-group btn" onClick={this.handleCheckAll.bind(this, false)} />
+            <div className={`glyphicon btn-group btn ${this.checkboxIcon()}`} onClick={this.handleCheckAll.bind(this)} />
 
             <div className='btn-group btn pull-right'>
               <div className="btn btn-group btn-info" onClick={this.sortTasks.bind(this, 'priority')}>
@@ -153,7 +164,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' onChange={this.handleCheck.bind(this, task.id)} checked={this.checkboxRendering(task.id)}  /*checked={this.state.checkedAllStatus}*/ />
+                  <input type='checkbox' onChange={this.handleCheck.bind(this, task.id)} checked={this.checkboxRendering(task.id)} />
                 </div>
                 <div className="li_height hover1 for_icons">
 
@@ -188,7 +199,7 @@ class TasksList extends Component {
               <div key={task.id} className='container-fluid'>
 
                 <div className='col-xs-1'>
-                  <input type='checkbox' onClick={ this.handleCheck.bind(this, task.id) } checked={this.state.checkedAllStatus} />
+                  <input type='checkbox' onChange={this.handleCheck.bind(this, task.id)} checked={this.checkboxRendering(task.id)} />
                 </div>
 
                 <div className="li_height hover1 for_icons">
