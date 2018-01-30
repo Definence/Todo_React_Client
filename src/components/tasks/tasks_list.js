@@ -26,7 +26,6 @@ class TasksList extends Component {
   };
 
   componentDidMount () {
-    console.log(this.checkboxIcon());
     this.context.store.dispatch(getTasks());
   }
 

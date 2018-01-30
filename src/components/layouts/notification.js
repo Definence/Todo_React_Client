@@ -6,7 +6,7 @@ import './notification.css';
 
 const Notification = ({ notification }) => {
 
-  const { notificationsAsync } = notification
+  const { notificationsAsync } = notification;
 
   if (notificationsAsync.length > 0) {
     return (

@@ -24,7 +24,10 @@ import Email_confirmation from './components/users/email_confirmation';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-const history = syncHistoryWithStore(hashHistory, store);
+const history = syncHistoryWithStore(
+  hashHistory,
+  store
+);
 
 if (token && token.length === 30) {
   ReactDOM.render(
@@ -34,6 +37,7 @@ if (token && token.length === 30) {
         <Route path="/tasks/:id/edit" component={Tasks_Edition} />
         <Route path="/tasks/:id/profile" component={Task_Profile} />
         <Route path="/users/sign_out" component={Sign_out} />
+        <Route path="/users/sign_in" component={Sign_in} />
         <Route path='*' component={Not_exists} />
         <Route path="/users/email_confirmation" component={Email_confirmation} />
       </Router>

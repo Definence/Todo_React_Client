@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Navbar from '../layouts/navbar';
 import { emailConfirmation } from '../../actions/users';
-import { token } from '../constants/api_config';
 import Notification from '../layouts/notification';
 
 

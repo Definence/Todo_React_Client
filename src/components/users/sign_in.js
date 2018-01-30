@@ -25,7 +25,7 @@ class Sign_in extends React.Component {
 
   handleSubmit(element) {
     element.preventDefault();
-    this.props.onSignIn(this.state.session);
+    this.props.onSignIn(this.state.session)
   }
 
   render() {
@@ -64,7 +64,6 @@ class Sign_in extends React.Component {
     );
   }
 }
-
 
 export default connect(
   state => ({}),
