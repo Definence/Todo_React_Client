@@ -11,19 +11,23 @@ export function signUp(user) {
     axios.post(`${USERS_URL}`, body, { headers: HEADERS })
 
       .then(res => {
-        notificationsAsync({
-          message: 'You have been successfully signed up. Please confirm your email'
-        })(dispatch);
-
+        if (status === 200) {
+          notificationsAsync({
+            message: res.data.message
+          })(dispatch);
         setTimeout(() => {
           browserHistory.push('#/users/sign_in');
           location.reload()
-        }, 3500)
-
+        }, 3000)
+        } else {
+          notificationsAsync({
+            message: res.data.message
+          })(dispatch);
+        }
       })
+
       .catch(error => {
         console.error(error);
-
         notificationsAsync({
           message: 'Something went wrong :('
         })(dispatch);
@@ -39,21 +43,19 @@ export function emailConfirmation(token) {
       .then(res => {
         if (res.status === 200) {
           notificationsAsync({
-            message: 'You have confirmed your email'
+            message: res.data.message
           })(dispatch);
-
           setTimeout(() => {
             browserHistory.push('#/users/sign_in');
             location.reload()
-          }, 3000)
-
+          }, 2000)
         } else {
           notificationsAsync({
             message: 'Something went wrong :('
           })(dispatch);
         }
-
       })
+
       .catch(e => {
         console.error("error: ", e);
       })

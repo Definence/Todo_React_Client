@@ -14,11 +14,7 @@ export function signIn(session){
     axios.post(`${SESSION_URL}`, body, { headers: HEADERS })
 
       .then(res => {
-        if (res.status === 207) {
-          notificationsAsync({
-            message: 'Your account is not activated. Please confirm your email!'
-          })(dispatch);
-        } else if (res.status === 200) {
+        if (res.status === 200) {
           // зберігає дані з бекенду в локалстор
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('username', res.data.username);
@@ -27,12 +23,11 @@ export function signIn(session){
             url: '/'
           })(dispatch);
 
-          // browserHistory.push('/');
-          // location.reload();
-
-        } else if (res.status === 204) {
+          browserHistory.push('/');
+          location.reload();
+        } else {
           notificationsAsync({
-            message: 'User does not exists!'
+            message: res.data.message
           })(dispatch);
         }
       })

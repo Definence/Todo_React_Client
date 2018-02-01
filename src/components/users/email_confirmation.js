@@ -9,7 +9,6 @@ import Notification from '../layouts/notification';
 class Email_Confirmation extends Component {
 
   componentWillMount() {
-    // console.log(this.props.location.query.email_token)
     let token = this.props.location.query.email_token;
     this.props.onEmailConfirmation(token);
   }

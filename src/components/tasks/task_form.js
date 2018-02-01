@@ -54,19 +54,48 @@ class TaskForm extends React.Component {
       <form className='form-group' onSubmit={ this.handleSubmit.bind(this) } >
 
         <label>Title:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'title') } type="text" placeholder='Enter a title' required minLength="5" maxLength="30" />
+        <input
+          className='form-control'
+          onChange={ this.handleChange.bind( this, 'title') }
+          type="text"
+          placeholder='Enter a title'
+          required minLength="5"
+          maxLength="30"
+        />
 
         <label>Description:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'description') } type="text" placeholder='Enter a description' required />
+        <input
+          className='form-control'
+          onChange={ this.handleChange.bind( this, 'description') }
+          type="text"
+          placeholder='Enter a description'
+          required
+        />
 
         <label>Priority:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'priority') } type="number" placeholder='Enter a priority' required max="9999" />
+        <input
+          className='form-control'
+          onChange={ this.handleChange.bind( this, 'priority') }
+          type="number"
+          placeholder='Enter a priority'
+          required max="9999"
+        />
 
         <label>Date:</label>
-        <input className='form-control' onChange={ this.handleChange.bind( this, 'due_date') } type="date" placeholder='Enter a date' required />
+        <input
+          className='form-control'
+          onChange={ this.handleChange.bind( this, 'due_date') }
+          type="date"
+          placeholder='Enter a date'
+          required
+        />
 
         <label>Completed:</label>
-        <input className='form-group' onChange={ this.handleChange.bind( this, 'active') } type="checkbox" />
+        <input
+          className='form-group'
+          onChange={ this.handleChange.bind( this, 'active') }
+          type="checkbox"
+        />
 
         <br/>
 

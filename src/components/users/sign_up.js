@@ -50,32 +50,56 @@ class Sign_up extends React.Component {
 
             <div>
               <label>Email:</label>
-              <input className='form-control' placeholder="Enter your email" type="email" onChange={this.handleChange.bind(this, 'email')} />
+              <input
+                className='form-control'
+                placeholder="Enter your email"
+                type="email"
+                onChange={this.handleChange.bind(this, 'email')} />
             </div>
 
             <div>
               <label>Username:</label>
-              <input className='form-control' placeholder="Enter a username" type="text" onChange={this.handleChange.bind(this, 'username')} />
+              <input
+                className='form-control'
+                placeholder="Enter a username"
+                type="text"
+                onChange={this.handleChange.bind(this, 'username')} />
             </div>
 
             <div>
               <label>Firstname:</label>
-              <input className='form-control' placeholder="Enter your firstname" type="text" onChange={this.handleChange.bind(this, 'firstname')} />
+              <input
+                className='form-control'
+                placeholder="Enter your firstname"
+                type="text"
+                onChange={this.handleChange.bind(this, 'firstname')} />
             </div>
 
             <div>
               <label>Lastname:</label>
-              <input className='form-control' placeholder="Enter your lastname" type="text" onChange={this.handleChange.bind(this, 'lastname')} />
+              <input
+                className='form-control'
+                placeholder="Enter your lastname"
+                type="text"
+                onChange={this.handleChange.bind(this, 'lastname')} />
             </div>
 
             <div>
               <label>Password:</label>
-              <input className='form-control' placeholder="Enter a password" type="password" onChange={this.handleChange.bind(this, 'password')} />
+              <input
+                className='form-control'
+                placeholder="Enter a password"
+                type="password"
+                onChange={this.handleChange.bind(this, 'password')} />
             </div>
 
             <div>
               <label>Password confirmation:</label>
-              <input className='form-control' placeholder="Enter a password" type="password" onChange={this.handleChange.bind(this, 'password_confirmation')} />
+              <input
+                className='form-control'
+                placeholder="Enter a password"
+                type="password"
+                onChange={this.handleChange.bind(this, 'password_confirmation')} />
             </div>
 
             <br />
