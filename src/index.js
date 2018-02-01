@@ -23,7 +23,12 @@ import Sign_in from './components/users/sign_in';
 import Email_confirmation from './components/users/email_confirmation';
 
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+  reducer,
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
 const history = syncHistoryWithStore(
   hashHistory,
   store

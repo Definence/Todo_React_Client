@@ -1,7 +1,6 @@
 import { ADD_NOTIFICATION, DELETE_NOTIFICATION } from '../constants/action_types';
 
-
-export function addNotificationAsync (params) {
+export function notificationsAsync (params) {
   if (!params.message) {
     return null;
   }

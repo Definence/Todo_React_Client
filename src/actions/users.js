@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { USERS_URL, HEADERS } from '../components/constants/api_config';
-import { addNotificationAsync } from '../components/middlewares/notifications';
+import { notificationsAsync } from '../components/middlewares/notifications';
 
 export function signUp(user) {
   return function(dispatch, getState) {
@@ -11,7 +11,7 @@ export function signUp(user) {
     axios.post(`${USERS_URL}`, body, { headers: HEADERS })
 
       .then(res => {
-        addNotificationAsync({
+        notificationsAsync({
           message: 'You have been successfully signed up. Please confirm your email'
         })(dispatch);
 
@@ -24,7 +24,7 @@ export function signUp(user) {
       .catch(error => {
         console.error(error);
 
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Something went wrong :('
         })(dispatch);
       })
@@ -38,7 +38,7 @@ export function emailConfirmation(token) {
 
       .then(res => {
         if (res.status === 200) {
-          addNotificationAsync({
+          notificationsAsync({
             message: 'You have confirmed your email'
           })(dispatch);
 
@@ -48,7 +48,7 @@ export function emailConfirmation(token) {
           }, 3000)
 
         } else {
-          addNotificationAsync({
+          notificationsAsync({
             message: 'Something went wrong :('
           })(dispatch);
         }

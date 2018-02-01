@@ -3,10 +3,10 @@ import { browserHistory } from 'react-router';
 
 import { TASKS_URL, HEADERS, token } from '../components/constants/api_config';
 import { GET_TASKS, GET_TASK_ID, ADD_TASK, DELETE_TASK, COMPLETE_TASK, DELETE_TASKS } from '../components/constants/action_types';
-import { addNotificationAsync } from '../components/middlewares/notifications';
+import { notificationsAsync } from '../components/middlewares/notifications';
 
 let headers = Object.assign({}, HEADERS)
-  headers['Authorization'] = token
+headers['Authorization'] = token
 
 export function getTasks() {
   return function(dispatch, getState) {
@@ -46,7 +46,7 @@ export function addTask(task) {
       .then(res => {
         dispatch({ type: ADD_TASK, payload: res.data });
 
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Task has been successfully created'
         })(dispatch);
       })
@@ -64,7 +64,7 @@ export function deleteTask(id) {
         dispatch({ type: DELETE_TASK, payload: id });
 
         //middleware
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Task has been successfully deleted'
         })(dispatch);
       })
@@ -79,7 +79,7 @@ export function editTask(task) {
     axios.patch(`${TASKS_URL}/${task.id}`, task, { headers: headers })
 
       .then(res => {
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Task has been successfully updated'
         })(dispatch);
 
@@ -109,7 +109,7 @@ export function completeTask(id, active) {
       .then(res => {
         dispatch({ type: COMPLETE_TASK, payload: res.data });
 
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Task has been successfully reassigned'
         })(dispatch);
       })
@@ -126,7 +126,7 @@ export function destroyCheckedTasks(ids) {
       .then(res => {
         dispatch({ type: DELETE_TASKS, payload: ids });
 
-        addNotificationAsync({
+        notificationsAsync({
           message: 'Tasks has been successfully deleted'
         })(dispatch);
       })

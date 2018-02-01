@@ -82,7 +82,7 @@ CDN bootstrap
 >		npm install --save redux-thunk
 
 
-devtools extension(не обовязуово)
+devtools extension(не обовязково)
 
 >		npm i redux-devtools-extension --save
 
@@ -94,7 +94,7 @@ devtools extension(не обовязуово)
 >		npm install react-cookies --save
 
 
-prop-types(не обовязуово)
+prop-types(не обовязково)
 
 >   npm install --save prop-types
 
@@ -155,7 +155,8 @@ dispatch		-		викликає редюсер
 
 reduсer		-		змінює стор
 
-ref		-		вик для оновлення одного елемента без оновлення всього потоку
+ref		-		взвертається до конкретного дом елемента. вик для оновлення одного елемента без оновлення всього потоку. можна вик
+для отримання інпуту без перерендерінга
 
 subscribe		-		підписується на зміну стор. робить код кожен раз, коли змінюється стор
 
