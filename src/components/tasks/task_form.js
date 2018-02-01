@@ -59,8 +59,9 @@ class TaskForm extends React.Component {
           onChange={ this.handleChange.bind( this, 'title') }
           type="text"
           placeholder='Enter a title'
-          required minLength="5"
+          minLength="5"
           maxLength="30"
+          required
         />
 
         <label>Description:</label>
@@ -78,7 +79,8 @@ class TaskForm extends React.Component {
           onChange={ this.handleChange.bind( this, 'priority') }
           type="number"
           placeholder='Enter a priority'
-          required max="9999"
+          max="9999"
+          required
         />
 
         <label>Date:</label>

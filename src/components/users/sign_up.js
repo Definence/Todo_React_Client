@@ -54,7 +54,10 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter your email"
                 type="email"
-                onChange={this.handleChange.bind(this, 'email')} />
+                onChange={this.handleChange.bind(this, 'email')}
+                minLength="8"
+                required
+              />
             </div>
 
             <div>
@@ -63,7 +66,9 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter a username"
                 type="text"
-                onChange={this.handleChange.bind(this, 'username')} />
+                onChange={this.handleChange.bind(this, 'username')}
+                required
+              />
             </div>
 
             <div>
@@ -72,7 +77,12 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter your firstname"
                 type="text"
-                onChange={this.handleChange.bind(this, 'firstname')} />
+                onChange={this.handleChange.bind(this, 'firstname')}
+                pattern='[A-Za-z]{3,10}'
+                title="Firstname can contain only letters. 3-10 symbols is allowed"
+                // minLength="3"
+                required
+              />
             </div>
 
             <div>
@@ -81,7 +91,12 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter your lastname"
                 type="text"
-                onChange={this.handleChange.bind(this, 'lastname')} />
+                onChange={this.handleChange.bind(this, 'lastname')}
+                pattern='[A-Za-z]'
+                title="Lastname can contain only letters. 4-12 symbols is allowed"
+                pattern='[A-Za-z]{4,12}'
+                required
+              />
             </div>
 
             <div>
@@ -90,7 +105,10 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter a password"
                 type="password"
-                onChange={this.handleChange.bind(this, 'password')} />
+                onChange={this.handleChange.bind(this, 'password')}
+                minLength="6"
+                required
+              />
             </div>
 
             <div>
@@ -99,7 +117,10 @@ class Sign_up extends React.Component {
                 className='form-control'
                 placeholder="Enter a password"
                 type="password"
-                onChange={this.handleChange.bind(this, 'password_confirmation')} />
+                onChange={this.handleChange.bind(this, 'password_confirmation')}
+                minLength="6"
+                required
+              />
             </div>
 
             <br />
