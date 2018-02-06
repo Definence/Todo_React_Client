@@ -12,7 +12,6 @@ export function signUp(user) {
 
       .then(res => {
         if (status === 200) {
-          console.log('1212121');
           notificationsAsync({
             message: res.data.message
           })(dispatch);
@@ -28,8 +27,6 @@ export function signUp(user) {
       })
 
       .catch(error => {
-        console.log(error)
-        console.error(error);
         notificationsAsync({
           message: 'Something went wrong :('
         })(dispatch);
@@ -60,7 +57,10 @@ export function emailConfirmation(token) {
       })
 
       .catch(e => {
-        console.error("error: ", e);
+        // console.error("error: ", e);
+        notificationsAsync({
+          message: 'Something went wrong :('
+        })(dispatch);
       })
   }
 }
