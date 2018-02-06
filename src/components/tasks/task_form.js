@@ -79,7 +79,8 @@ class TaskForm extends React.Component {
           onChange={ this.handleChange.bind( this, 'priority') }
           type="number"
           placeholder='Enter a priority'
-          max="9999"
+          max="3"
+          min="1"
           required
         />
 

@@ -27,6 +27,7 @@ export function signUp(user) {
       })
 
       .catch(error => {
+        console.log(error)
         console.error(error);
         notificationsAsync({
           message: 'Something went wrong :('
@@ -41,6 +42,7 @@ export function emailConfirmation(token) {
     axios.post(`${USERS_URL}/email_confirmation`, body, { headers: HEADERS })
 
       .then(res => {
+        console.log(res.data)
         if (res.status === 200) {
           notificationsAsync({
             message: res.data.message
