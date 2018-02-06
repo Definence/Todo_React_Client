@@ -67,6 +67,8 @@ class Sign_up extends React.Component {
                 placeholder="Enter a username"
                 type="text"
                 onChange={this.handleChange.bind(this, 'username')}
+                pattern='{3,10}'
+                title="Username must be unique and can contain only letters. 3-10 symbols is allowed"
                 required
               />
             </div>
