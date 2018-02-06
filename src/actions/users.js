@@ -12,6 +12,7 @@ export function signUp(user) {
 
       .then(res => {
         if (status === 200) {
+          console.log('1212121');
           notificationsAsync({
             message: res.data.message
           })(dispatch);
