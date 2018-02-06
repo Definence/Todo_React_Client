@@ -80,7 +80,7 @@ class Sign_up extends React.Component {
                 placeholder="Enter your firstname"
                 type="text"
                 onChange={this.handleChange.bind(this, 'firstname')}
-                pattern='[A-Za-z]{3,10}'
+                pattern='[A-Za-z\d]{3,}'
                 title="Firstname can contain only letters. 3-10 symbols is allowed"
                 // minLength="3"
                 required
