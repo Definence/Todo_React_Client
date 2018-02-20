@@ -1,7 +1,10 @@
-// import { token } from '../components/constants/api_config';
+let URL;
 
-const URL = 'https://todo-react-api.herokuapp.com/'
-// const URL = 'http://localhost:3000'
+if (process.env.NODE_ENV === 'production') {
+  URL = 'https://todo-react-api.herokuapp.com/'
+} else {
+  URL = 'http://localhost:3000'
+}
 
 export const SESSION_URL = URL + '/sessions'
 
