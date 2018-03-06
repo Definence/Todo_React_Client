@@ -1,9 +1,9 @@
 let URL;
 
-process.env.NODE_ENV === 'production' ?
-  URL = 'https://todo-react-api.herokuapp.com/'
-:
+process.env.NODE_ENV !== 'production' ?
   URL = 'http://localhost:3000';
+:
+  URL = 'https://todo-react-api.herokuapp.com/'
 
 export const SESSION_URL = URL + '/sessions'
 
