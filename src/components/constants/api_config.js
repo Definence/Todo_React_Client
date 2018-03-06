@@ -1,7 +1,7 @@
 let URL;
 
 process.env.NODE_ENV !== 'production' ?
-  URL = 'http://localhost:3000';
+  URL = 'http://localhost:3000'
 :
   URL = 'https://todo-react-api.herokuapp.com/'
 
