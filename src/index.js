@@ -65,5 +65,6 @@ if (token && token.length === 30) {
 
 
 store.subscribe(() => {
-  console.log('MAIN STORE ->', store.getState());
+  // console.log('MAIN STORE ->', store.getState());
+  console.log(process.env.NODE_ENV);
 })
